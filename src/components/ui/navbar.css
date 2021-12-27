@@ -1,0 +1,103 @@
+.navbar_container {
+  width: 100%;
+  height: 100vh;
+  overflow: auto;
+  background: #7510f7;
+  color: white;
+  position: fixed;
+  top: 0;
+  transition: 1.5s ease-in-out;
+}
+
+.navbar_menu_span {
+  width: 97%;
+  padding: 1rem 0;
+  display: flex;
+  justify-content: flex-end;
+  cursor: pointer;
+}
+
+.navbar_menu {
+  font-size: 3rem;
+}
+
+.hidden_navbar {
+  transform: translate(-110rem);
+  transition: 1.2s ease-in-out;
+}
+
+.slidingOff {
+  transform: translate(0rem);
+  transition: 1.2s ease-in-out;
+}
+
+.btn_open {
+  font-size: 3rem;
+  border: none;
+  background: transparent;
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  cursor: pointer;
+}
+
+.close_navbar {
+  position: absolute;
+  top: 0.5rem;
+  right: 1rem;
+  font-size: 2rem;
+  background: transparent;
+  border: none;
+  color: #fff;
+  cursor: pointer;
+}
+
+.navbar_title {
+  width: 100%;
+  padding: 2rem 0;
+  font-size: 6rem;
+  border-bottom: 1px solid;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.navbar_container::-webkit-scrollbar {
+  width: 0.5rem;
+}
+
+.navbar_container::-webkit-scrollbar-thumb {
+  background: #fff;
+  border-radius: 5px;
+}
+
+.navbar_span_favorite {
+  width: 100%;
+  padding: 1rem 0;
+  border-bottom: 1px solid;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.navbar_links {
+  width: 100%;
+  padding: 1.3rem 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.social_network {
+  font-size: 2rem;
+  color: #fff;
+}
+
+@media (min-width: 768px) {
+  .navbar_links {
+    padding: 2.5rem 0;
+  }
+  .social_network {
+    font-size: 3.5rem;
+  }
+}
