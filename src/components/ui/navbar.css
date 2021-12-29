@@ -7,11 +7,13 @@
   position: fixed;
   top: 0;
   transition: 1.5s ease-in-out;
+  z-index: 50;
 }
 
 .navbar_menu_span {
   width: 97%;
-  padding: 1rem 0;
+  position: absolute;
+  top: 1rem;
   display: flex;
   justify-content: flex-end;
   cursor: pointer;
@@ -19,6 +21,7 @@
 
 .navbar_menu {
   font-size: 3rem;
+  color: gray;
 }
 
 .hidden_navbar {
@@ -99,5 +102,11 @@
   }
   .social_network {
     font-size: 3.5rem;
+  }
+}
+
+@media screen and (min-width: 1600px) {
+  .navbar_menu_span {
+    left: 1rem;
   }
 }

@@ -10,6 +10,10 @@ import { SiGmail } from "react-icons/si";
 import { FaExchangeAlt } from "react-icons/fa";
 import { ImPriceTag } from "react-icons/im";
 
+import img1 from "../images/wars.jpg";
+import img2 from "../images/cine.jpg";
+import img3 from "../images/world.jpg";
+
 export const moviesMood = [
   {
     id: 1,
@@ -78,4 +82,14 @@ export const socialNetwork = [
     class: "social_network",
     link: "a",
   },
+];
+
+export const dataImages = [
+  { image: img1, title: "Messi", body: "fdsjhfsdjhfsdjhfsdjhfsdjhsfdj" },
+  {
+    image: img2,
+    title: "Cristiano Ronaldo",
+    body: "fdsjsfdjfsdkjfsdkjfsdkfds",
+  },
+  { image: img3, title: "Frenkie de Jong", body: "sfkhsfdhjsfdjnsfdnjdfsn" },
 ];

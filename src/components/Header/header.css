@@ -1,0 +1,105 @@
+.header_background {
+  width: 100%;
+  height: 33rem;
+  overflow: hidden;
+}
+
+.header_background > img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.header_box {
+  width: 100%;
+}
+
+.header_card {
+  width: 90%;
+  position: absolute;
+  top: 6rem;
+  left: 1rem;
+  color: #ffffffb4;
+}
+
+.header_title {
+  font-size: 2.4rem;
+  padding: 0 1rem;
+}
+
+.header_desc {
+  font-size: 1.2rem;
+  padding: 1rem;
+}
+
+.header_buttons {
+  width: 100%;
+  padding: 1rem 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.btn {
+  width: 45%;
+  height: 2rem;
+  background: #ffffff1f;
+  border: none;
+  color: white;
+  font-size: 0.9rem;
+  border-radius: 0.5rem;
+  cursor: pointer;
+}
+
+@media (min-width: 540px) {
+  .header_card {
+    width: 65%;
+  }
+}
+
+@media (min-width: 768px) {
+  .header_card {
+    width: 46%;
+    top: 7.5rem;
+    left: 4rem;
+  }
+
+  .header_background {
+    width: 100%;
+    height: 45rem;
+    overflow: hidden;
+  }
+
+  .header_desc {
+    font-size: 1.4rem;
+    line-height: 1.5;
+  }
+  .btn {
+    height: 3rem;
+    font-size: 1.2rem;
+  }
+}
+
+@media (min-width: 1020px) {
+  .header_background {
+    height: 53rem;
+  }
+
+  .header_card {
+    width: 45%;
+    top: 14.5rem;
+    left: 6rem;
+  }
+}
+
+@media (min-width: 1600px) {
+  .header_background {
+    height: 100vh;
+  }
+
+  .header_card {
+    width: 30%;
+    top: 11rem;
+    left: 15rem;
+  }
+}

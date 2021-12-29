@@ -1,12 +1,20 @@
 import "./app.css";
-import NavbarScreen from "./components/ui";
+import FooterScreen from "./components/Footer";
+// import MainScreen from "./components/Main/Main";
+// import HeaderScreen from "./components/Header";
+// import NavbarScreen from "./components/ui";
+// import ModalScreen from "./components/Modals";
+// import SliderScreen from "./components/Main/Slider";
 // import LoginScreen from "./components/Loggin-in/Login";
 // import RegisterScreen from "./components/Loggin-in/Register";
 
 function App() {
   return (
     <>
-      <NavbarScreen />
+      <FooterScreen />
+      {/* <NavbarScreen />
+      <HeaderScreen />
+      <MainScreen />; */}
     </>
   );
 }
