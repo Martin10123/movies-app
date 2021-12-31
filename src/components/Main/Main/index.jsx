@@ -31,7 +31,7 @@ const MainScreen = () => {
                 fuga reprehenderit aperiam neque blanditiis.
               </p>
 
-              <p className="btn_more">ver más...</p>
+              <p className="main_btn_more">ver más...</p>
             </div>
           </div>
         </div>

@@ -13,3 +13,11 @@ body {
   font-family: "Playfair Display", serif;
   font-family: "PT Serif", serif;
 }
+
+.svg_green {
+  color: lime;
+}
+
+.svg_red {
+  color: red;
+}

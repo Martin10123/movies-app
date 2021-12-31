@@ -7,6 +7,8 @@ import {
 } from "react-icons/ai";
 import img1 from "../../../images/wars.jpg";
 
+import ComentariesScreen from "../../Comentaries";
+
 import "./features.css";
 
 const FeaturesMovie = () => {
@@ -27,11 +29,11 @@ const FeaturesMovie = () => {
                 </span>
                 <span className="features_svg_popular">
                   <p>
-                    <AiFillLike className="features_svg  features_green" />
+                    <AiFillLike className="features_svg  svg_green" />
                     92%
                   </p>
                   <p>
-                    <AiFillDislike className="features_svg features_red" />
+                    <AiFillDislike className="features_svg svg_red" />
                     22%
                   </p>
                 </span>
@@ -61,6 +63,7 @@ const FeaturesMovie = () => {
           </div>
         </div>
       </article>
+      <ComentariesScreen />
     </>
   );
 };

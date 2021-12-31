@@ -70,14 +70,6 @@
   align-items: center;
 }
 
-.features_green {
-  color: lime;
-}
-
-.features_red {
-  color: red;
-}
-
 .features_description p {
   padding: 0 0.5rem;
   margin-bottom: 1rem;
