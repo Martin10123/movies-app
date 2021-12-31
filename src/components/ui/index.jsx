@@ -1,11 +1,12 @@
 import { useState } from "react";
 import { GiHamburgerMenu } from "react-icons/gi";
 import { BiHome, BiStar } from "react-icons/bi";
+import profileImg from "../../images/default.png";
 
 import { moviesMood, socialNetwork } from "../../helpers/caracteristcas";
+import Features from "./Features";
 
 import "./navbar.css";
-import Features from "./Features";
 
 const NavbarScreen = () => {
   const [showByID, setShowByID] = useState(0);
@@ -19,8 +20,15 @@ const NavbarScreen = () => {
 
   return (
     <>
-      <span onClick={() => setShowNav(!showNav)} className="navbar_menu_span">
-        <GiHamburgerMenu className="navbar_menu" />
+      <span className="navbar_menu_span">
+        <div className="navbar_profile">
+          <img className="navbar_profile_img" src={profileImg} alt="" />
+          <p>Martin Elias</p>
+        </div>
+        <GiHamburgerMenu
+          onClick={() => setShowNav(!showNav)}
+          className="navbar_menu"
+        />
       </span>
       <nav
         className={
