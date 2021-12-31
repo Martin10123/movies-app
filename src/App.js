@@ -7,19 +7,17 @@
 // import SliderScreen from "./components/Main/Slider";
 // import LoginScreen from "./components/Loggin-in/Login";
 // import RegisterScreen from "./components/Loggin-in/Register";
-import ProfileScreen from "./components/Loggin-in/Profile";
+// import ProfileScreen from "./components/Loggin-in/Profile";
 
 import "./app.css";
 
 function App() {
   return (
     <>
-      <ProfileScreen />
-      {/*
       <NavbarScreen />
-       <HeaderScreen />
+      <HeaderScreen />
       <MainScreen />
-      <FooterScreen /> */}
+      <FooterScreen />
     </>
   );
 }
