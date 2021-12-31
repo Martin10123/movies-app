@@ -37,15 +37,18 @@ const FooterScreen = () => {
       <div className="footer_message">
         <h2>Dejanos un mensaje</h2>
         <form action="">
-          <input type="text" name="name" placeholder="Su nombre..." />
-          <input type="email" name="email" placeholder="Su email..." />
+          <label htmlFor="name">Nombre</label>
+          <input type="text" name="name" id="name" autoComplete="off" />
+          <label htmlFor="email">Email</label>
+          <input type="email" name="email" id="email" autoComplete="off" />
+          <label htmlFor="textarea">Mensaje</label>
           <textarea
             name="textarea"
-            id=""
+            id="textarea"
             cols="30"
             rows="10"
-            placeholder="Su mensaje..."
-          ></textarea>
+            autoComplete="off"
+          />
           <button type="submit">Enviar</button>
         </form>
       </div>

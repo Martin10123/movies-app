@@ -1,0 +1,115 @@
+.features_background {
+  width: 100%;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  background: url("../../../images/cine.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  z-index: -1;
+}
+
+.features_box {
+  width: 100%;
+  color: white;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+.features_content {
+  width: 100%;
+  height: 100%;
+}
+
+.features_img {
+  width: 100%;
+  height: 100%;
+}
+
+.img_movie {
+  width: 100%;
+  object-fit: cover;
+  overflow: hidden;
+}
+
+.features_desc {
+  width: 100%;
+  padding: 1rem 0.4rem;
+  box-sizing: border-box;
+}
+
+.features_desc h2 {
+  padding: 2rem 0;
+  text-align: center;
+}
+
+.features_date {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  box-sizing: border-box;
+}
+
+.features_svg {
+  padding: 0.3rem;
+  font-size: 1.7rem;
+  cursor: pointer;
+}
+
+.features_svg_popular {
+  width: 9rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.features_svg_popular > p {
+  display: flex;
+  align-items: center;
+}
+
+.features_green {
+  color: lime;
+}
+
+.features_red {
+  color: red;
+}
+
+.features_description p {
+  padding: 0 0.5rem;
+  margin-bottom: 1rem;
+  font-size: 1.2rem;
+}
+
+.features_ul {
+  padding: 1rem 0.5rem;
+  font-size: 1.2rem;
+  border-top: 1px solid;
+  border-bottom: 1px solid;
+}
+
+ul.features_ul > li {
+  padding: 0.3rem 0;
+}
+
+.features_buttons {
+  width: 100%;
+  padding: 1rem 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.btn_buy {
+  background-color: #c2fbd7;
+  border-radius: 100px;
+  box-shadow: rgba(44, 187, 99, 0.2) 0 -25px 18px -14px inset,
+    rgba(44, 187, 99, 0.15) 0 1px 2px, rgba(44, 187, 99, 0.15) 0 2px 4px,
+    rgba(44, 187, 99, 0.15) 0 4px 8px, rgba(44, 187, 99, 0.15) 0 8px 16px,
+    rgba(44, 187, 99, 0.15) 0 16px 32px;
+  color: green;
+  cursor: pointer;
+}

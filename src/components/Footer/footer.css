@@ -1,27 +1,13 @@
 footer.footer {
   width: 100%;
   color: #fff;
-}
-
-footer.footer::before {
-  content: "";
-  width: 100%;
-  height: 100%;
   background-color: #140b5c;
-  position: absolute;
-  z-index: -1;
 }
 
 .footer_login {
   width: 100%;
   padding: 2rem 0;
   box-sizing: border-box;
-}
-
-.footer_login h2 {
-  padding: 0.5rem 1rem;
-  font-size: 1.5rem;
-  text-align: center;
 }
 
 .footer_login li {
@@ -34,7 +20,9 @@ footer.footer::before {
   border-top: 1px solid;
 }
 
-.footer_contact h2 {
+.footer_contact h2,
+.footer_message h2,
+.footer_login h2 {
   padding: 0.5rem 1rem;
   font-size: 1.5rem;
   text-align: center;
@@ -59,5 +47,74 @@ footer.footer::before {
   width: 100%;
   padding: 2rem 0;
   border-top: 1px solid;
-  margin: 0.4rem 0;
+}
+
+.footer_message > form {
+  width: 100%;
+  padding: 0.4rem;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  box-sizing: border-box;
+}
+
+.footer_message > form > label {
+  padding: 1rem;
+  font-size: 1.3rem;
+  color: gray;
+}
+
+.footer_message > form > input {
+  width: 100%;
+  height: 2rem;
+  font-size: 1.5rem;
+  color: white;
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid #3fcaf4;
+  outline: none;
+}
+
+.footer_message > form > textarea {
+  width: 100%;
+  font-size: 1rem;
+  color: white;
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid #3fcaf4;
+  outline: none;
+  resize: none;
+}
+
+.footer_message > form > button {
+  width: 100%;
+  height: 3rem;
+  margin: 2rem 0;
+  font-size: 1.7rem;
+  background: white;
+  color: #595959;
+  cursor: pointer;
+}
+
+@media screen and (min-width: 1100px) {
+  footer.footer {
+    display: grid;
+    grid-template-columns: 1fr 1fr 2fr;
+    grid-gap: 3rem;
+    align-items: center;
+  }
+  .footer_message > form {
+    width: 65%;
+  }
+
+  .footer_contact {
+    border: none;
+  }
+
+  .footer_message {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: none;
+  }
 }

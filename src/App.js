@@ -1,5 +1,6 @@
 import "./app.css";
-import FooterScreen from "./components/Footer";
+import FeaturesMovie from "./components/Main/Features";
+// import FooterScreen from "./components/Footer";
 // import MainScreen from "./components/Main/Main";
 // import HeaderScreen from "./components/Header";
 // import NavbarScreen from "./components/ui";
@@ -11,10 +12,11 @@ import FooterScreen from "./components/Footer";
 function App() {
   return (
     <>
-      <FooterScreen />
+      <FeaturesMovie />
       {/* <NavbarScreen />
       <HeaderScreen />
-      <MainScreen />; */}
+      <MainScreen />
+      <FooterScreen /> */}
     </>
   );
 }

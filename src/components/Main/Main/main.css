@@ -1,6 +1,8 @@
 .main_box {
+  padding: 4rem 0;
   position: relative;
   color: #ffffffb4;
+  background: #ededed;
 }
 
 .main_box h1 {
@@ -29,6 +31,18 @@
   position: relative;
   overflow: hidden;
   border-radius: 0.5rem;
+}
+
+.main_box::before {
+  content: "";
+  width: 100%;
+  height: 100%;
+  background: #01395e;
+  position: absolute;
+  top: 0;
+
+  clip-path: circle(66.1% at 52% 0);
+  z-index: -1;
 }
 
 .main_img {
@@ -157,9 +171,8 @@
   }
 
   .main_section_info {
-    width: 97%;
     height: 37rem;
-    margin: 2rem 0;
+    padding: 3rem 0;
   }
 
   .main_box h1 {
