@@ -1,5 +1,6 @@
 import "./app.css";
-import FeaturesMovie from "./components/Main/Features";
+import ComentariesScreen from "./components/Comentaries";
+// import FeaturesMovie from "./components/Main/Features";
 // import FooterScreen from "./components/Footer";
 // import MainScreen from "./components/Main/Main";
 // import HeaderScreen from "./components/Header";
@@ -12,7 +13,7 @@ import FeaturesMovie from "./components/Main/Features";
 function App() {
   return (
     <>
-      <FeaturesMovie />
+      <ComentariesScreen />
       {/* <NavbarScreen />
       <HeaderScreen />
       <MainScreen />
