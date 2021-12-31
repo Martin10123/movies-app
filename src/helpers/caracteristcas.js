@@ -79,3 +79,31 @@ export const socialNetwork = [
     link: "a",
   },
 ];
+
+export const informationAbout = [
+  {
+    id: 1,
+    title: "¿Quienes somos?",
+    desc: " Lorem ipsum dolor, sit amet consectetur adipisicing elit. Amet molestias accusamus doloremque laudantium provident quaerat recusandae. Modi itaque commodi similique, ut iusto, excepturi voluptates dolor, enim quasi tempore molestiae quas.",
+  },
+  {
+    id: 2,
+    title: "¿Que puedo hacer?",
+    desc: " Lorem ipsum dolor, sit amet consectetur adipisicing elit. Amet molestias accusamus doloremque laudantium provident quaerat recusandae. Modi itaque commodi similique, ut iusto, excepturi voluptates dolor, enim quasi tempore molestiae quas.",
+  },
+  {
+    id: 3,
+    title: "¿Por qué no puedo rentar una pelicula sin estar suscrito?",
+    desc: " Lorem ipsum dolor, sit amet consectetur adipisicing elit. Amet molestias accusamus doloremque laudantium provident quaerat recusandae. Modi itaque commodi similique, ut iusto, excepturi voluptates dolor, enim quasi tempore molestiae quas.",
+  },
+  {
+    id: 4,
+    title: "¿Cuantas peliculas puedo rentar?",
+    desc: " Lorem ipsum dolor, sit amet consectetur adipisicing elit. Amet molestias accusamus doloremque laudantium provident quaerat recusandae. Modi itaque commodi similique, ut iusto, excepturi voluptates dolor, enim quasi tempore molestiae quas.",
+  },
+  {
+    id: 5,
+    title: "¿De donde vienen las peliculas?",
+    desc: " Lorem ipsum dolor, sit amet consectetur adipisicing elit. Amet molestias accusamus doloremque laudantium provident quaerat recusandae. Modi itaque commodi similique, ut iusto, excepturi voluptates dolor, enim quasi tempore molestiae quas.",
+  },
+];

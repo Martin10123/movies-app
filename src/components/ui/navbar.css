@@ -2,7 +2,7 @@
   width: 100%;
   height: 100vh;
   overflow: auto;
-  background: #7510f7;
+  background: #025687;
   color: white;
   position: fixed;
   top: 0;
@@ -18,6 +18,7 @@
   justify-content: space-between;
   cursor: pointer;
   align-items: center;
+  z-index: 12;
 }
 
 .navbar_profile {
@@ -34,6 +35,7 @@
 
 .navbar_profile p {
   font-size: 1.3rem;
+  color: #fff;
 }
 
 .navbar_menu {
@@ -123,8 +125,20 @@
   }
 }
 
+@media screen and (min-width: 1020px) {
+  .navbar_container {
+    width: 40%;
+  }
+}
+
 @media screen and (min-width: 1600px) {
+  .navbar_container {
+    width: 29%;
+  }
+
   .navbar_menu_span {
     left: 1rem;
   }
 }
+
+/* #7510f7  */

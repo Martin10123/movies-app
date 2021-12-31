@@ -95,11 +95,7 @@
   }
 }
 
-@media (min-width: 1020px) {
-  .navbar_container {
-    width: 40%;
-  }
-
+@media screen and (min-width: 1020px) {
   .ul_types,
   .ul_year,
   .ul_price,
@@ -110,11 +106,7 @@
   }
 }
 
-@media (min-width: 1500px) {
-  .navbar_container {
-    width: 28%;
-  }
-
+@media (min-width: 1300px) {
   .social_network {
     font-size: 2.5rem;
   }
