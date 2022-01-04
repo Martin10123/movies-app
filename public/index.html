@@ -12,11 +12,47 @@
     <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
 
     <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
-
     <title>React App</title>
+
+    <style>
+      .loading_color {
+        width: 100%;
+        height: 100vh;
+        position: fixed;
+        top: 0;
+        left: 0;
+        background: black;
+        color: white;
+        z-index: 1234;
+      }
+
+      .loading_content {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .loading_color h1 {
+        font-size: 3rem;
+        padding: 1rem;
+      }
+
+      .loading_color img {
+        width: 20rem;
+      }
+    </style>
   </head>
   <body>
     <noscript>You need to enable JavaScript to run this app.</noscript>
-    <div id="root"></div>
+    <div id="root">
+      <div class="loading_color">
+        <div class="loading_content">
+          <h1>Por favor espere un momento...</h1>
+        </div>
+      </div>
+    </div>
   </body>
 </html>
