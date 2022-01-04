@@ -1,7 +1,7 @@
 footer.footer {
   width: 100%;
   color: #fff;
-  background-color: #140b5c;
+  background-color: #000000;
 }
 
 .footer_login {
@@ -13,6 +13,7 @@ footer.footer {
 .footer_login li {
   font-size: 1.3rem;
   padding: 0.5rem 1rem;
+  color: white;
 }
 
 .footer_contact {

@@ -60,8 +60,7 @@
 }
 
 @media (min-width: 768px) {
-  .navbar_dropdown,
-  .navbar_span_favorite {
+  .navbar_dropdown {
     padding: 2rem 0;
   }
 

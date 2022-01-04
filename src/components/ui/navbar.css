@@ -101,6 +101,7 @@
   display: flex;
   flex-wrap: wrap;
   align-items: center;
+  cursor: pointer;
 }
 
 .navbar_links {
@@ -122,6 +123,9 @@
   }
   .social_network {
     font-size: 3.5rem;
+  }
+  .navbar_span_favorite {
+    padding: 2rem 0;
   }
 }
 

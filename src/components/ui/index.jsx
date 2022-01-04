@@ -1,4 +1,5 @@
 import { useState } from "react";
+// import { useNavigate, useParams } from "react-router-dom";
 import { GiHamburgerMenu } from "react-icons/gi";
 import { BiHome, BiStar } from "react-icons/bi";
 import profileImg from "../../images/default.png";

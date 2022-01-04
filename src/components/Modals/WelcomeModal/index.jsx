@@ -1,17 +1,14 @@
 import React from "react";
 
-import "./modal.css";
+import "./modalFirst.css";
 
-const ModalScreen = () => {
+const WelcomeModal = () => {
   return (
     <div className="modal">
       <div className="modal_content">
         <div className="modal_info">
           <h2>Por favor registrase</h2>
-          <p>
-            Si quieres realizar esta acción antes tienes que estar registrado a
-            esta pagina, la buena
-          </p>
+          <p>Si quieres realizar esta acción antes tienes que estar suscrito</p>
           <div className="modal_buttons">
             <button className="btn btn_color_green">Registrarse</button>
             <button className="btn btn_color">Cancelar</button>
@@ -22,4 +19,4 @@ const ModalScreen = () => {
   );
 };
 
-export default ModalScreen;
+export default WelcomeModal;

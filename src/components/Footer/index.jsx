@@ -2,6 +2,7 @@ import React from "react";
 
 import { BsWhatsapp, BsFacebook, BsInstagram, BsGithub } from "react-icons/bs";
 import { SiGmail } from "react-icons/si";
+import { Link } from "react-router-dom";
 import "./footer.css";
 
 const FooterScreen = () => {
@@ -10,8 +11,12 @@ const FooterScreen = () => {
       <div className="footer_login">
         <h2>¿Aún no te has suscrito?</h2>
         <ul>
-          <li>Ingrese con su cuenta</li>
-          <li>Registrese</li>
+          <Link to="/login">
+            <li>Ingrese con su cuenta</li>
+          </Link>
+          <Link to="/register">
+            <li>Registrese</li>
+          </Link>
         </ul>
       </div>
       <div className="footer_contact">

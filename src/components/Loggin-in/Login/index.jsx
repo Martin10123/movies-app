@@ -1,11 +1,20 @@
 import React from "react";
+import { Link, useNavigate } from "react-router-dom";
 
 import "./login.css";
 
 const LoginScreen = () => {
+  const navigate = useNavigate();
+  const sentMain = () => {
+    navigate("/");
+  };
+
   return (
     <>
       <div className="login__background"></div>
+      <button className="login_btn_return" onClick={sentMain}>
+        X
+      </button>
       <div className="login__box">
         <div className="login__view">
           <h2>Login</h2>
@@ -38,7 +47,9 @@ const LoginScreen = () => {
               <b>Sign in with google</b>
             </p>
           </div>
-          <p className="login_p">No tengo una cuenta</p>
+          <Link to="/register">
+            <p className="login_p">No tengo una cuenta</p>
+          </Link>
         </div>
       </div>
     </>

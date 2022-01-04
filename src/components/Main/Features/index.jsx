@@ -1,25 +1,50 @@
-import React from "react";
+import React, { useMemo } from "react";
 import {
   AiFillMessage,
   AiFillDislike,
   AiOutlineHeart,
   AiFillLike,
 } from "react-icons/ai";
-import img1 from "../../../images/wars.jpg";
+import { useNavigate, useParams } from "react-router-dom";
+import { getMovieByID } from "../../../Selector/selectorByID";
 
 import ComentariesScreen from "../../Comentaries";
 
 import "./features.css";
 
 const FeaturesMovie = () => {
+  const { movieID } = useParams();
+  const navigate = useNavigate();
+
+  const movie = useMemo(() => getMovieByID(movieID), [movieID]);
+  const {
+    name,
+    year,
+    type,
+    Place,
+    votes,
+    synopsis,
+    price,
+    rented,
+    cantidad,
+    image,
+  } = movie;
+
+  const sentMain = () => {
+    navigate("/");
+  };
+
   return (
     <>
       <div className="features_background"></div>
+      <button className="features_btn_return" onClick={sentMain}>
+        Salir
+      </button>
       <article className="features_box">
         <div className="features_content">
           <div className="feature_content_info">
             <div className="features_img">
-              <img src={img1} alt="" className="img_movie" />
+              <img src={image} alt="" className="img_movie" />
             </div>
             <div className="features_desc">
               <div className="features_date">
@@ -30,29 +55,24 @@ const FeaturesMovie = () => {
                 <span className="features_svg_popular">
                   <p>
                     <AiFillLike className="features_svg  svg_green" />
-                    92%
+                    {votes.positivos}
                   </p>
                   <p>
                     <AiFillDislike className="features_svg svg_red" />
-                    22%
+                    {votes.negativos}
                   </p>
                 </span>
               </div>
-              <h2>Rapidos y Furiosos</h2>
+              <h2>{name}</h2>
               <span className="features_description">
-                <p>
-                  Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                  Repellendus a vitae dolorem cumque cupiditate aliquid
-                  doloremque neque quasi libero nam asperiores, perspiciatis
-                  tempore! Ab atque illo hic commodi, inventore aut?
-                </p>
+                <p>{synopsis}</p>
                 <ul className="features_ul">
-                  <li>year: 2021</li>
-                  <li>type: acción, ficción, terror</li>
-                  <li>Place: Estados Unidos</li>
-                  <li>price: $2.500</li>
-                  <li>rented: No</li>
-                  <li>cantidad restante: 10</li>
+                  <li>year: {year}</li>
+                  <li>type: {type.map((type) => type.concat(", "))}</li>
+                  <li>Place: {Place}</li>
+                  <li>price: {price}</li>
+                  <li>rented: {rented ? "Si" : "No"}</li>
+                  <li>cantidad restante: {cantidad}</li>
                 </ul>
               </span>
               <div className="features_buttons">

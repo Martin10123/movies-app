@@ -1,9 +1,13 @@
 import React from "react";
+import { useParams } from "react-router-dom";
 import profileImg from "../../../images/wars.jpg";
 
 import "./profile.css";
 
 const ProfileScreen = () => {
+  const params = useParams();
+  console.log(params);
+
   return (
     <section className="user_container">
       <button className="user_close">Salir</button>

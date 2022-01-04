@@ -1,0 +1,110 @@
+.view_movie_color {
+  width: 100%;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  z-index: -1;
+  opacity: 1;
+  background-color: #000000;
+}
+
+.view_movie_card {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  box-sizing: border-box;
+}
+
+.view_movie_card > h1 {
+  font-size: 2rem;
+  padding: 1rem;
+  color: #fff;
+}
+
+.view_movie_content {
+  width: 100%;
+  margin: 3rem 0;
+}
+
+.view_movie_img {
+  width: 100%;
+  height: 20rem;
+}
+
+.view_movie_img > img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.view_movie_desc {
+  padding: 0 1.5rem 2rem;
+  background: #fff;
+  border-bottom: 1px solid gray;
+}
+
+.view_movie_desc > h2 {
+  font-size: 2.4rem;
+  padding: 1rem 0;
+  text-align: center;
+}
+
+.view_movie_desc > p {
+  font-size: 1.2rem;
+  color: #7e7e7e;
+}
+
+.view_movie_buttons {
+  width: 100%;
+  background: #eb0766;
+  box-sizing: border-box;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  align-items: center;
+}
+
+.view_movie_btn {
+  width: 100%;
+  height: 4rem;
+  font-size: 1.2rem;
+  color: #fff;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+.btn_view_more {
+  border-right: 1px solid gray;
+}
+
+.btn_rented_movie {
+  border-right: 1px solid gray;
+}
+
+@media screen and (min-width: 500px) {
+  .view_movie_contain_cards {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
+    box-sizing: border-box;
+  }
+
+  .view_movie_content {
+    width: 26rem;
+  }
+}
+
+@media screen and (min-width: 800px) {
+  .view_movie_content {
+    margin: 2rem;
+  }
+}
+
+@media screen and (min-width: 1000px) {
+  .view_movie_card > h1 {
+    font-size: 2.5rem;
+    padding: 3rem;
+  }
+}
