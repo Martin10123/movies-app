@@ -114,6 +114,15 @@
   cursor: pointer;
 }
 
+.btn_show_error {
+  width: 100%;
+  font-size: 1.3rem;
+  display: flex;
+  justify-content: center;
+  background: red;
+  color: white;
+}
+
 @media all and (min-width: 768px) {
   .login__view {
     width: 80%;

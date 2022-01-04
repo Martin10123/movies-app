@@ -1,15 +1,23 @@
-import { useState } from "react";
-// import { useNavigate, useParams } from "react-router-dom";
+import { useContext, useState } from "react";
+
 import { GiHamburgerMenu } from "react-icons/gi";
-import { BiHome, BiStar } from "react-icons/bi";
+import { UserActive } from "../../Contexts/UserContext";
+import { BiHome, BiLogIn } from "react-icons/bi";
 import profileImg from "../../images/default.png";
 
 import { moviesMood, socialNetwork } from "../../helpers/caracteristcas";
 import Features from "./Features";
 
+import { auth } from "../../Firebase/firebaseConfig";
+import { signOut } from "firebase/auth";
+
 import "./navbar.css";
 
 const NavbarScreen = () => {
+  const { userActive } = useContext(UserActive);
+
+  // const { displayName, photoURL } = userActive;
+
   const [showByID, setShowByID] = useState(0);
   const [showNav, setShowNav] = useState(false);
   const [showFeatures, setShowFeatures] = useState(false);
@@ -19,12 +27,36 @@ const NavbarScreen = () => {
     setShowFeatures(!showFeatures);
   };
 
+  const startLogout = async () => {
+    try {
+      await signOut(auth);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   return (
     <>
       <span className="navbar_menu_span">
         <div className="navbar_profile">
-          <img className="navbar_profile_img" src={profileImg} alt="" />
-          <p>Martin Elias</p>
+          {userActive?.photoURL ? (
+            <img
+              className="navbar_profile_img"
+              src={userActive.photoURL}
+              alt="Foto de perfil"
+            />
+          ) : (
+            <img
+              className="navbar_profile_img"
+              src={profileImg}
+              alt="Foto de perfil"
+            />
+          )}
+          {userActive?.displayName ? (
+            <p>{userActive?.displayName}</p>
+          ) : (
+            <p>Anonimo</p>
+          )}
         </div>
         <GiHamburgerMenu
           onClick={() => setShowNav(!showNav)}
@@ -59,9 +91,9 @@ const NavbarScreen = () => {
               );
             })}
           </div>
-          <span className="navbar_span_favorite">
-            <BiStar className="star_svg" />
-            <p>Favorites</p>
+          <span onClick={startLogout} className="navbar_span_logout">
+            <BiLogIn className="logout_svg" />
+            <p>Logout</p>
           </span>
           <div className="navbar_links">
             {socialNetwork.map((red) => {

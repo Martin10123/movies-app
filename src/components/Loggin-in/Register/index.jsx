@@ -1,25 +1,26 @@
 import React, { useState } from "react";
-import validator from "validator";
 import { Link, useNavigate } from "react-router-dom";
+import validator from "validator";
+
 import { createUserWithEmailAndPassword, updateProfile } from "firebase/auth";
+import { auth } from "../../../Firebase/firebaseConfig";
 
 import { useForm } from "../../../hooks/useForm";
 
 import "./register.css";
-import { auth } from "../../../Firebase/firebaseConfig";
 
 const RegisterScreen = () => {
   const [showError, setShowError] = useState("");
   const navigate = useNavigate();
   const [registerValue, handleInputChange] = useForm({
     fullname: "",
-    user: "",
+    userName: "",
     email: "",
     password1: "",
     password2: "",
   });
 
-  const { fullname, user, email, password1, password2 } = registerValue;
+  const { fullname, userName, email, password1, password2 } = registerValue;
 
   const sentMain = () => {
     navigate("/");
@@ -32,6 +33,9 @@ const RegisterScreen = () => {
     } else if (!validator.isEmail(email)) {
       setShowError("Su email no es correcto");
       return false;
+    } else if (userName === "") {
+      setShowError("El nombre de usuario no debe estar vacio");
+      return false;
     } else if (password1 !== password2 || password1.length < 6) {
       setShowError(
         "Su contraseña debe de tener mas de 6 digitos y deben ser iguales"
@@ -42,21 +46,29 @@ const RegisterScreen = () => {
     return true;
   };
 
-  const sentRegisterForm = async (e) => {
+  const sentRegisterForm = (e) => {
     e.preventDefault();
 
-    if (isFormValid()) {
-      const infoUser = await createUserWithEmailAndPassword(
-        auth,
-        email,
-        password1
-      );
+    try {
+      if (isFormValid()) {
+        createUserWithEmailAndPassword(auth, email, password1)
+          .then(async (userCredential) => {
+            await updateProfile(auth.currentUser, {
+              displayName: userName,
+            });
+            const user = userCredential.user;
+            console.log(user);
+          })
+          .catch((error) => {
+            const errorCode = error.code;
+            const errorMessage = error.message;
 
-      await updateProfile(auth.currentUser, {
-        displayName: fullname,
-      });
-
-      console.log(infoUser);
+            setShowError(errorCode);
+            setShowError(errorMessage);
+          });
+      }
+    } catch (error) {
+      console.log(error);
     }
   };
 
@@ -82,12 +94,12 @@ const RegisterScreen = () => {
             />
             <input
               type="text"
-              name="user"
+              name="userName"
               placeholder="Ingrese su usuario..."
               className="input_register"
               autoComplete="off"
               required
-              value={user}
+              value={userName}
               onChange={handleInputChange}
             />
             <input

@@ -9,13 +9,13 @@
 }
 
 .navbar_menu_svg,
-.star_svg {
+.logout_svg {
   font-size: 2rem;
   padding: 0rem 2rem 0px 1.4rem;
 }
 
 .navbar_dropdown p,
-.navbar_span_favorite p {
+.navbar_span_logout p {
   font-size: 1.5rem;
 }
 

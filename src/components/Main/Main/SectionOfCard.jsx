@@ -20,7 +20,7 @@ const SectionOfCard = ({ movie }) => {
           <h3>{movie.name}</h3>
           <p className="main_title_movie">{movie.synopsis}</p>
 
-          <Link to={`hola/${movie.name}`}>
+          <Link to={`movie/${movie.name}`}>
             <p className="main_btn_more">ver más...</p>
           </Link>
         </div>

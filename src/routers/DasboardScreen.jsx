@@ -11,9 +11,9 @@ const DasboardScreen = () => {
     <Routes>
       <Route path="/" element={<MainScreen />}>
         <Route path="category" element={<ViewMovie />} />
-        <Route path=":name" element={<ProfileScreen />} />
       </Route>
-      <Route path="hola/:movieID" element={<FeaturesMovie />} />
+      <Route path="movie/:movieID" element={<FeaturesMovie />} />
+      <Route path="profile/:name" element={<ProfileScreen />} />
       <Route path="*" element={<MainScreen />} />
     </Routes>
   );

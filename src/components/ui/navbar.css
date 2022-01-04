@@ -31,6 +31,7 @@
 
 .navbar_profile_img {
   width: 4rem;
+  border-radius: 50%;
 }
 
 .navbar_profile p {
@@ -94,10 +95,11 @@
   border-radius: 5px;
 }
 
-.navbar_span_favorite {
+.navbar_span_logout {
   width: 100%;
   padding: 1rem 0;
   border-bottom: 1px solid;
+  background: #ff0202;
   display: flex;
   flex-wrap: wrap;
   align-items: center;
@@ -124,7 +126,7 @@
   .social_network {
     font-size: 3.5rem;
   }
-  .navbar_span_favorite {
+  .navbar_span_logout {
     padding: 2rem 0;
   }
 }
