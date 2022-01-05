@@ -1,41 +1,55 @@
-import React from "react";
-import { useParams } from "react-router-dom";
-import profileImg from "../../../images/wars.jpg";
+import React, { useContext } from "react";
+import { useNavigate } from "react-router-dom";
+import { UserActive } from "../../../Contexts/UserContext";
+
+import profile from "../../../images/world.jpg";
 
 import "./profile.css";
 
 const ProfileScreen = () => {
-  const params = useParams();
-  console.log(params);
+  const { userActive, startLogout } = useContext(UserActive);
+
+  const navigate = useNavigate();
+
+  const goToMain = () => {
+    navigate("/");
+  };
 
   return (
     <section className="user_container">
-      <button className="user_close">Salir</button>
+      <div className="user_container_butons">
+        <button className="user_close" onClick={goToMain}>
+          Salir
+        </button>
+        <button className="user_logout" onClick={startLogout}>
+          Cerrar session
+        </button>
+      </div>
       <div className="user_box">
-        <img className="user_img" src={profileImg} alt="" />
-        <h1>Martin Elias</h1>
+        {userActive?.photoURL ? (
+          <img className="user_img" src={userActive?.photoURL} alt="" />
+        ) : (
+          <img className="user_img" src={profile} alt="" />
+        )}
+        <h1>{userActive?.displayName}</h1>
       </div>
       <article className="user_content_info">
         <section className="user_personal_info">
           <span className="user_desc">
             <strong>Nombre:</strong>
-            <p>Martin Elias</p>
+            <p>{userActive?.displayName}</p>
           </span>
           <span className="user_desc">
             <strong>Email:</strong>
-            <p>Martin@gmail.com</p>
+            <p>{userActive?.email}</p>
           </span>
           <span className="user_desc">
             <strong>Celular:</strong>
-            <p>300-683-0624</p>
-          </span>
-          <span className="user_desc">
-            <strong>Dirección:</strong>
-            <p>Torices</p>
-          </span>
-          <span className="user_desc">
-            <strong>Sexo:</strong>
-            <p>Masculino</p>
+            {userActive?.phoneNumber ? (
+              <p>{userActive?.phoneNumber}</p>
+            ) : (
+              <p>No se registro un número telefonico</p>
+            )}
           </span>
         </section>
         <section className="user_info_movies">

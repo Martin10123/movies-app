@@ -1,16 +1,12 @@
 import { useContext } from "react";
-import { Navigate, useLocation } from "react-router-dom";
+import { Navigate } from "react-router-dom";
 
-import { AuthContext } from "../auth/AuthContext";
+import { UserActive } from "../Contexts/UserContext";
 
 const PrivateRoute = ({ children }) => {
-  const { user } = useContext(AuthContext);
+  const { userActive } = useContext(UserActive);
 
-  const { pathname, search } = useLocation();
-
-  localStorage.setItem("lastPath", pathname + search);
-
-  return user.logged ? children : <Navigate to="/login" />;
+  return userActive ? children : <Navigate to="/" />;
 };
 
 export default PrivateRoute;

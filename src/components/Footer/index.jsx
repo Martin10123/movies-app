@@ -22,19 +22,25 @@ const FooterScreen = () => {
       <div className="footer_contact">
         <h2>Encuentranos en</h2>
         <span className="footer_contact_socials">
-          <a href="a" className="social_network">
+          <a href="https://wa.link/2995b6" className="social_network">
             <BsWhatsapp />
           </a>
-          <a href="a" className="social_network">
+          <a
+            href="https://www.facebook.com/martinelias1012"
+            className="social_network"
+          >
             <BsFacebook />
           </a>
-          <a href="a" className="social_network">
+          <a
+            href="https://www.instagram.com/martinelias1012/"
+            className="social_network"
+          >
             <BsInstagram />
           </a>
-          <a href="a" className="social_network">
+          <a href="https://github.com/Martin10123" className="social_network">
             <BsGithub />
           </a>
-          <a href="a" className="social_network">
+          <a href="mailto:martinsimarra4@gmail.com?" className="social_network">
             <SiGmail />
           </a>
         </span>

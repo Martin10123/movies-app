@@ -1,8 +1,13 @@
+import { useContext } from "react";
 import { useNavigate } from "react-router-dom";
+import { UserActive } from "../../Contexts/UserContext";
 import img1 from "../../images/cine.jpg";
+
 import "./header.css";
 
 const HeaderScreen = () => {
+  const { userActive } = useContext(UserActive);
+
   const navigate = useNavigate();
 
   const sentLoginScreen = () => {
@@ -19,21 +24,36 @@ const HeaderScreen = () => {
         <img src={img1} alt="" />
       </div>
       <div className="header_card">
-        <h2 className="header_title">Bienvenid@</h2>
+        {userActive?.displayName ? (
+          <h2 className="header_title">Bienvenid@ {userActive.displayName}</h2>
+        ) : (
+          <h2 className="header_title">Bienvenid@, estas en modo anonimo</h2>
+        )}
         <p className="header_desc">
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum,
           corrupti cumque consectetur quis qui neque blanditiis ipsum ipsa nulla
           dolorum amet, facere nihil debitis asperiores accusamus nam eum.
           Culpa, sint!
         </p>
-        <div className="header_buttons">
-          <button className="btn btn_login" onClick={sentLoginScreen}>
-            Ingresar
-          </button>
-          <button className="btn btn_more" onClick={sentRegisterScreen}>
-            Registrarse
-          </button>
-        </div>
+        {!userActive ? (
+          <div className="header_buttons">
+            <button className="btn btn_login" onClick={sentLoginScreen}>
+              Ingresar
+            </button>
+            <button className="btn btn_more" onClick={sentRegisterScreen}>
+              Registrarse
+            </button>
+          </div>
+        ) : (
+          <div className="header_buttons_hidden">
+            <a href="#peliculas" className="btn_all_movies">
+              Peliculas
+            </a>
+            <a href="#peliculas_recomendadas" className="btn_recomended">
+              Peliculas recomendadas
+            </a>
+          </div>
+        )}
       </div>
     </header>
   );

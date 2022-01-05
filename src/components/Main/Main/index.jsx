@@ -1,7 +1,6 @@
 import React from "react";
 import Carousel from "react-multi-carousel";
 import { responsive } from "../../../helpers/caracteristcas";
-import "react-multi-carousel/lib/styles.css";
 
 import SectionOfCard from "./SectionOfCard";
 import NavbarScreen from "../../ui";
@@ -19,7 +18,7 @@ const MainScreen = () => {
       <NavbarScreen />
       <HeaderScreen />
       <main className="main_box">
-        <section className="main_section_all_movie">
+        <section id="peliculas" className="main_section_all_movie">
           <h1>Peliculas</h1>
           <div className="main_info_map">
             {moviesFalse.map((movie) => (
@@ -28,7 +27,7 @@ const MainScreen = () => {
           </div>
         </section>
 
-        <section className="main_section_info">
+        <section id="peliculas_recomendadas" className="main_section_info">
           <h1>Peliculas recomendadas</h1>
           <Carousel responsive={responsive} infinite={true} draggable={false}>
             {moviesFalse.map(

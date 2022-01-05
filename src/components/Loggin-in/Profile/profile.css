@@ -1,17 +1,21 @@
-.user_container {
+.user_container_butons {
   width: 100%;
-  background: #e2e8f0;
-}
-
-button.user_close {
+  padding: 0 1rem;
   position: absolute;
   top: 1rem;
-  left: 1rem;
-  font-size: 1.4rem;
+  display: flex;
+  z-index: 2;
+  justify-content: space-between;
+  align-items: center;
+  box-sizing: border-box;
+}
+
+button.user_close,
+.user_logout {
   background: transparent;
   border: none;
+  font-size: 1.3rem;
   cursor: pointer;
-  z-index: 1223;
 }
 
 .user_container::before {
@@ -82,12 +86,13 @@ button.user_close {
 .user_desc > p {
   font-size: 1.3rem;
   color: rgb(109, 109, 109);
-  line-break: auto;
+  line-break: anywhere;
 }
 
 .contain_ul_movies {
   width: 100%;
   padding: 1rem;
+  box-sizing: border-box;
 }
 
 .contain_ul_movies > strong {
@@ -140,7 +145,8 @@ button.user_close {
     grid-gap: 3rem;
   }
 
-  button.user_close {
+  button.user_close,
+  .user_logout {
     color: #fff;
     font-size: 2.4rem;
   }

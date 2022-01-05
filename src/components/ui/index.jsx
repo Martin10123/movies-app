@@ -1,4 +1,6 @@
 import { useContext, useState } from "react";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 import { GiHamburgerMenu } from "react-icons/gi";
 import { UserActive } from "../../Contexts/UserContext";
@@ -8,15 +10,14 @@ import profileImg from "../../images/default.png";
 import { moviesMood, socialNetwork } from "../../helpers/caracteristcas";
 import Features from "./Features";
 
-import { auth } from "../../Firebase/firebaseConfig";
-import { signOut } from "firebase/auth";
+import { useNavigate } from "react-router-dom";
 
 import "./navbar.css";
 
 const NavbarScreen = () => {
-  const { userActive } = useContext(UserActive);
+  const { userActive, startLogout } = useContext(UserActive);
 
-  // const { displayName, photoURL } = userActive;
+  const navigate = useNavigate();
 
   const [showByID, setShowByID] = useState(0);
   const [showNav, setShowNav] = useState(false);
@@ -27,18 +28,26 @@ const NavbarScreen = () => {
     setShowFeatures(!showFeatures);
   };
 
-  const startLogout = async () => {
-    try {
-      await signOut(auth);
-    } catch (error) {
-      console.log(error);
+  const goToProfile = () => {
+    if (userActive) {
+      navigate(`/profile`);
+    } else {
+      return toast.info("Tienes que estar logueado para realizar esta acción", {
+        position: "top-center",
+        autoClose: 3000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+      });
     }
   };
 
   return (
     <>
       <span className="navbar_menu_span">
-        <div className="navbar_profile">
+        <div className="navbar_profile" onClick={goToProfile}>
           {userActive?.photoURL ? (
             <img
               className="navbar_profile_img"
@@ -99,7 +108,12 @@ const NavbarScreen = () => {
             {socialNetwork.map((red) => {
               const RedIcon = red.icon;
               return (
-                <a key={red.id} href={red.link}>
+                <a
+                  key={red.id}
+                  href={red.link}
+                  rel="noreferrer"
+                  target="_blank"
+                >
                   <RedIcon className={red.class} />
                 </a>
               );
@@ -107,6 +121,7 @@ const NavbarScreen = () => {
           </div>
         </div>
       </nav>
+      <ToastContainer position="top-right" autoClose={5000} pauseOnFocusLoss />
     </>
   );
 };

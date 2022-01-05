@@ -1,13 +1,17 @@
+import { BrowserRouter } from "react-router-dom";
 import AppRouter from "./routers/AppRouter";
 import { UserContext } from "./Contexts/UserContext";
 
+import "react-multi-carousel/lib/styles.css";
 import "./app.css";
 
 function App() {
   return (
-    <UserContext>
-      <AppRouter />
-    </UserContext>
+    <BrowserRouter>
+      <UserContext>
+        <AppRouter />
+      </UserContext>
+    </BrowserRouter>
   );
 }
 

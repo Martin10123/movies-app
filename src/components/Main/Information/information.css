@@ -62,7 +62,7 @@ article.info_box > h1 {
   }
 
   .info_content {
-    width: 35%;
+    width: 65%;
   }
 
   .info_div_content .info_p {
@@ -71,5 +71,11 @@ article.info_box > h1 {
 
   .info_div_content {
     border-bottom: 1px solid gray;
+  }
+}
+
+@media screen and (min-width: 1500px) {
+  .info_content {
+    width: 40%;
   }
 }

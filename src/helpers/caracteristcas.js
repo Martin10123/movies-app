@@ -1,4 +1,4 @@
-import { AiOutlineBarChart } from "react-icons/ai";
+import { AiOutlineBarChart, AiOutlineWhatsApp } from "react-icons/ai";
 import { BiCategory } from "react-icons/bi";
 import {
   BsFacebook,
@@ -58,25 +58,31 @@ export const socialNetwork = [
     id: 1,
     icon: BsFacebook,
     class: "social_network",
-    link: "a",
+    link: "https://www.facebook.com/martinelias1012",
   },
   {
     id: 2,
     icon: BsGithub,
     class: "social_network",
-    link: "a",
+    link: "https://github.com/Martin10123",
   },
   {
     id: 3,
     icon: SiGmail,
     class: "social_network",
-    link: "a",
+    link: "mailto:martinsimarra4@gmail.com?",
   },
   {
     id: 4,
     icon: BsInstagram,
     class: "social_network",
-    link: "a",
+    link: "https://www.instagram.com/martinelias1012/",
+  },
+  {
+    id: 4,
+    icon: AiOutlineWhatsApp,
+    class: "social_network",
+    link: "https://wa.link/2995b6",
   },
 ];
 

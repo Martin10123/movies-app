@@ -1,10 +1,12 @@
 import { createContext, useEffect, useState } from "react";
-import { onAuthStateChanged } from "firebase/auth";
+import { useNavigate } from "react-router-dom";
+import { onAuthStateChanged, signOut } from "firebase/auth";
 import { auth } from "../Firebase/firebaseConfig";
 
 export const UserActive = createContext();
 
 export const UserContext = ({ children }) => {
+  const navigate = useNavigate();
   const [userActive, setUserActive] = useState(null);
   const [loading, setLoading] = useState(true);
   const [authenticated, setAuthenticated] = useState(false);
@@ -24,10 +26,20 @@ export const UserContext = ({ children }) => {
     console.log(error);
   }
 
+  const startLogout = async () => {
+    try {
+      await signOut(auth);
+      navigate(0);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   const userGoogle = {
     userActive,
     loading,
     authenticated,
+    startLogout,
   };
 
   return (

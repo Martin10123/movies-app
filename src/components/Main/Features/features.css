@@ -51,6 +51,16 @@
   width: 100%;
   padding: 1rem 0.4rem;
   box-sizing: border-box;
+  overflow: auto;
+}
+
+.features_desc::-webkit-scrollbar {
+  width: 0.5rem;
+}
+
+.features_desc::-webkit-scrollbar-thumb {
+  background: #f661fb;
+  border-radius: 5px;
 }
 
 .features_desc h2 {
