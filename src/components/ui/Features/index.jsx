@@ -12,6 +12,7 @@ const Features = ({
   handleShowInfo,
   showByID,
   showFeatures,
+  handleClick,
 }) => {
   const Icono = icon;
 
@@ -22,7 +23,9 @@ const Features = ({
       {showByID === id && showFeatures && (
         <ul className={`${classCom}`}>
           {options.map((option, i) => (
-            <li key={i}>{option}</li>
+            <li onClick={() => handleClick(option, type)} key={i}>
+              {option}
+            </li>
           ))}
         </ul>
       )}

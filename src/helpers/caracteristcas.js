@@ -79,7 +79,7 @@ export const socialNetwork = [
     link: "https://www.instagram.com/martinelias1012/",
   },
   {
-    id: 4,
+    id: 5,
     icon: AiOutlineWhatsApp,
     class: "social_network",
     link: "https://wa.link/2995b6",

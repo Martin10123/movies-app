@@ -1,18 +1,21 @@
-import React from "react";
+import React, { useState } from "react";
 import Carousel from "react-multi-carousel";
 import { responsive } from "../../../helpers/caracteristcas";
 
+import moviesFalse from "../../../movieFalse";
 import SectionOfCard from "./SectionOfCard";
 import NavbarScreen from "../../ui";
 import HeaderScreen from "../../Header";
 import InformationScreen from "../Information";
+import ModalScreen from "../../Modals";
 
 import FooterScreen from "../../Footer";
-import moviesFalse from "../../../movieFalse";
 
 import "./main.css";
 
 const MainScreen = () => {
+  const [showMovie, setShowMovie] = useState(false);
+
   return (
     <>
       <NavbarScreen />
@@ -22,7 +25,11 @@ const MainScreen = () => {
           <h1>Peliculas</h1>
           <div className="main_info_map">
             {moviesFalse.map((movie) => (
-              <SectionOfCard key={movie.id} movie={movie} />
+              <SectionOfCard
+                key={movie.id}
+                movie={movie}
+                setShowMovie={setShowMovie}
+              />
             ))}
           </div>
         </section>
@@ -33,7 +40,11 @@ const MainScreen = () => {
             {moviesFalse.map(
               (movie) =>
                 movie.votes.positivos >= "90%" && (
-                  <SectionOfCard key={movie.id} movie={movie} />
+                  <SectionOfCard
+                    key={movie.id}
+                    movie={movie}
+                    setShowMovie={setShowMovie}
+                  />
                 )
             )}
           </Carousel>
@@ -44,7 +55,11 @@ const MainScreen = () => {
             {moviesFalse.map(
               (movie) =>
                 movie.year >= 2019 && (
-                  <SectionOfCard key={movie.id} movie={movie} />
+                  <SectionOfCard
+                    key={movie.id}
+                    movie={movie}
+                    setShowMovie={setShowMovie}
+                  />
                 )
             )}
           </Carousel>
@@ -55,7 +70,11 @@ const MainScreen = () => {
             {moviesFalse.map(
               (movie) =>
                 movie.year > 2020 && (
-                  <SectionOfCard key={movie.id} movie={movie} />
+                  <SectionOfCard
+                    key={movie.id}
+                    movie={movie}
+                    setShowMovie={setShowMovie}
+                  />
                 )
             )}
           </Carousel>
@@ -64,6 +83,7 @@ const MainScreen = () => {
         <InformationScreen />
       </main>
       <FooterScreen />
+      {showMovie && <ModalScreen setShowMovie={setShowMovie} />}
     </>
   );
 };

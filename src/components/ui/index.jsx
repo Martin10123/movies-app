@@ -1,6 +1,6 @@
 import { useContext, useState } from "react";
 import { ToastContainer, toast } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
+import { useNavigate } from "react-router-dom";
 
 import { GiHamburgerMenu } from "react-icons/gi";
 import { UserActive } from "../../Contexts/UserContext";
@@ -9,8 +9,6 @@ import profileImg from "../../images/default.png";
 
 import { moviesMood, socialNetwork } from "../../helpers/caracteristcas";
 import Features from "./Features";
-
-import { useNavigate } from "react-router-dom";
 
 import "./navbar.css";
 
@@ -41,6 +39,15 @@ const NavbarScreen = () => {
         draggable: true,
         progress: undefined,
       });
+    }
+  };
+
+  const handleClick = (category, type) => {
+    if (type !== "Votos") {
+      navigate(`movie/${type.toLowerCase()}/${category.toLowerCase()}`);
+    } else {
+      const newType = category.substring(0, category.length - 1);
+      navigate(`movie/${type.toLowerCase()}/${newType.toLowerCase()}`);
     }
   };
 
@@ -95,6 +102,7 @@ const NavbarScreen = () => {
                   showByID={showByID}
                   showNav={showNav}
                   handleShowInfo={handleShowInfo}
+                  handleClick={handleClick}
                   showFeatures={showFeatures}
                 />
               );
@@ -121,7 +129,7 @@ const NavbarScreen = () => {
           </div>
         </div>
       </nav>
-      <ToastContainer position="top-right" autoClose={5000} pauseOnFocusLoss />
+      <ToastContainer position="top-right" autoClose={2000} pauseOnFocusLoss />
     </>
   );
 };

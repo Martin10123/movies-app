@@ -21,7 +21,7 @@ const FeaturesMovie = () => {
     name,
     year,
     type,
-    Place,
+    place,
     votes,
     synopsis,
     price,
@@ -67,12 +67,12 @@ const FeaturesMovie = () => {
               <span className="features_description">
                 <p>{synopsis}</p>
                 <ul className="features_ul">
-                  <li>year: {year}</li>
-                  <li>type: {type.map((type) => type.concat(", "))}</li>
-                  <li>Place: {Place}</li>
-                  <li>price: {price}</li>
-                  <li>rented: {rented ? "Si" : "No"}</li>
-                  <li>cantidad restante: {cantidad}</li>
+                  <li>Year: {year}</li>
+                  <li>Type: {type.map((type) => type.concat(", "))}</li>
+                  <li>Place: {place}</li>
+                  <li>Price: {price}</li>
+                  <li>Rented: {rented ? "Si" : "No"}</li>
+                  <li>Cantidad restante: {cantidad}</li>
                 </ul>
               </span>
               <div className="features_buttons">

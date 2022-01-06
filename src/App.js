@@ -3,6 +3,7 @@ import AppRouter from "./routers/AppRouter";
 import { UserContext } from "./Contexts/UserContext";
 
 import "react-multi-carousel/lib/styles.css";
+import "react-toastify/dist/ReactToastify.css";
 import "./app.css";
 
 function App() {

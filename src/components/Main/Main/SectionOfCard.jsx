@@ -1,14 +1,11 @@
-import React, { useContext, useState } from "react";
+import React, { useContext } from "react";
 import { AiFillMessage, AiOutlineHeart } from "react-icons/ai";
 import { useNavigate } from "react-router-dom";
 import { UserActive } from "../../../Contexts/UserContext";
-import ModalScreen from "../../Modals";
 
-const SectionOfCard = ({ movie }) => {
+const SectionOfCard = ({ movie, setShowMovie }) => {
   const { userActive } = useContext(UserActive);
   const navigate = useNavigate();
-
-  const [showMovie, setShowMovie] = useState(false);
 
   const goToMovieComplete = () => {
     if (userActive) {
@@ -21,7 +18,6 @@ const SectionOfCard = ({ movie }) => {
 
   return (
     <>
-      {showMovie && <ModalScreen setShowMovie={setShowMovie} />}
       <div className="main_card">
         <div className="main_img">
           <img src={movie.image} alt="img wars" />

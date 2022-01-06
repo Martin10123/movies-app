@@ -4,7 +4,7 @@ const moviesFalse = [
     name: "SpiderMan -No way home",
     year: 2021,
     type: ["Action", "Drama", "Ciencia ficción"],
-    Place: "Estados unidos",
+    place: "Estados unidos",
     votes: {
       positivos: "92%",
       negativos: "8%",
@@ -22,7 +22,7 @@ const moviesFalse = [
     name: "Rapidos y furiosos",
     year: 2014,
     type: ["Action", "Crimen", "Ciencia ficción"],
-    Place: "Estados unidos",
+    place: "Estados unidos",
     votes: {
       positivos: "87%",
       negativos: "13%",
@@ -40,7 +40,7 @@ const moviesFalse = [
     name: "Una pareja explosiva 2",
     year: 2008,
     type: ["Action", "Aventura", "Comedia"],
-    Place: "Estados unidos",
+    place: "Estados unidos",
     votes: {
       positivos: "90%",
       negativos: "10%",
@@ -58,7 +58,7 @@ const moviesFalse = [
     name: "Lucy",
     year: 2012,
     type: ["Suspendo", "Drama", "Ciencia ficción"],
-    Place: "Estados unidos",
+    place: "Estados unidos",
     votes: {
       positivos: "85%",
       negativos: "15%",
@@ -76,7 +76,7 @@ const moviesFalse = [
     name: "Venom",
     year: 2021,
     type: ["Action", "Aventura", "Ciencia ficción"],
-    Place: "Estados unidos",
+    place: "Estados unidos",
     votes: {
       positivos: "99%",
       negativos: "1%",
@@ -94,7 +94,7 @@ const moviesFalse = [
     name: "La purga",
     year: 2020,
     type: ["Action", "Suspendo", "Terror"],
-    Place: "Estados unidos",
+    place: "Estados unidos",
     votes: {
       positivos: "94%",
       negativos: "6%",
@@ -112,7 +112,7 @@ const moviesFalse = [
     name: "El joker",
     year: 2019,
     type: ["Action", "Drama", "Suspenso"],
-    Place: "España",
+    place: "España",
     votes: {
       positivos: "99%",
       negativos: "1%",
@@ -130,7 +130,7 @@ const moviesFalse = [
     name: "El juego del miedo",
     year: 2010,
     type: ["Action", "Terror", "Ciencia ficción", "Suspenso", "Drama"],
-    Place: "Inglaterra",
+    place: "Inglaterra",
     votes: {
       positivos: "82%",
       negativos: "18%",
@@ -148,7 +148,7 @@ const moviesFalse = [
     name: "Resident evil 6",
     year: 2020,
     type: ["Action", "Drama", "Ciencia ficción", "Terror"],
-    Place: "Estados unidos",
+    place: "Estados unidos",
     votes: {
       positivos: "98%",
       negativos: "2%",
@@ -166,7 +166,7 @@ const moviesFalse = [
     name: "Halloween Kills",
     year: 2021,
     type: ["Action", "Terror"],
-    Place: "Estados unidos",
+    place: "Estados unidos",
     votes: {
       positivos: "89%",
       negativos: "11%",
@@ -184,7 +184,7 @@ const moviesFalse = [
     name: "Alerta Roja",
     year: 2021,
     type: ["Action", "Drama", "Aventura"],
-    Place: "Estados unidos",
+    place: "Estados unidos",
     votes: {
       positivos: "88%",
       negativos: "12%",
@@ -202,7 +202,7 @@ const moviesFalse = [
     name: "Invencible",
     year: 2014,
     type: ["Action", "Drama", "Suspenso", "Cultura"],
-    Place: "Estados unidos",
+    place: "Estados unidos",
     votes: {
       positivos: "97%",
       negativos: "3%",
@@ -219,7 +219,7 @@ const moviesFalse = [
     name: "Parásitos",
     year: 2019,
     type: ["Action", "Drama", "Ciencia ficción", "Suspenso"],
-    Place: "Japon",
+    place: "Japon",
     votes: {
       positivos: "99%",
       negativos: "1%",
@@ -237,7 +237,7 @@ const moviesFalse = [
     name: "Call me by your name",
     year: 2017,
     type: ["Drama", "Aventura"],
-    Place: "Inglaterra",
+    place: "Inglaterra",
     votes: {
       positivos: "70%",
       negativos: "30%",
@@ -255,7 +255,7 @@ const moviesFalse = [
     name: "John Wick",
     year: 2014,
     type: ["Action", "Drama", "Ciencia ficción"],
-    Place: "Estados unidos",
+    place: "Estados unidos",
     votes: {
       positivos: "89%",
       negativos: "11%",
@@ -273,7 +273,7 @@ const moviesFalse = [
     name: "Déjame salir",
     year: 2017,
     type: ["Action", "Drama", "Ciencia ficción", "Terror", "Romance"],
-    Place: "Estados unidos",
+    place: "Estados unidos",
     votes: {
       positivos: "94%",
       negativos: "6%",
@@ -290,7 +290,7 @@ const moviesFalse = [
     name: "Celda 211",
     year: 2009,
     type: ["Action", "Prisión", "Suspenso"],
-    Place: "México",
+    place: "México",
     votes: {
       positivos: "85%",
       negativos: "15%",
@@ -307,7 +307,7 @@ const moviesFalse = [
     name: "El caballero oscuro",
     year: 2008,
     type: ["Action", "Ciencia ficción", "Comedia"],
-    Place: "Estados unidos",
+    place: "Estados unidos",
     votes: {
       positivos: "99%",
       negativos: "1%",
@@ -325,7 +325,7 @@ const moviesFalse = [
     name: "El señor de los anillos",
     year: 2003,
     type: ["Action", "Ciencia ficción", "Aventura"],
-    Place: "Australia",
+    place: "Australia",
     votes: {
       positivos: "80%",
       negativos: "20%",
@@ -343,7 +343,7 @@ const moviesFalse = [
     name: "La red social",
     year: 2010,
     type: ["Action", "Tecnologia"],
-    Place: "Estados unidos",
+    place: "Estados unidos",
     votes: {
       positivos: "99%",
       negativos: "1%",

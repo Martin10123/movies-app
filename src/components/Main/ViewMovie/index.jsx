@@ -1,96 +1,76 @@
-import React from "react";
-import { useParams } from "react-router-dom";
-import wars from "../../../images/wars.jpg";
+import React, { useContext, useState } from "react";
+import { Link, useNavigate, useParams } from "react-router-dom";
+import { UserActive } from "../../../Contexts/UserContext";
+import { getMovieByName } from "../../../Selector/selectorByName";
+import ModalScreen from "../../Modals";
 
 import "./viewMovie.css";
 
 const ViewMovie = () => {
-  const params = useParams();
-  console.log(params);
+  const { userActive } = useContext(UserActive);
+  const [showMovie, setShowMovie] = useState(false);
+  const { type, category } = useParams();
+  const navigate = useNavigate();
+
+  const movieFilter = getMovieByName(category, type);
+
+  const goToViewAloneMovie = (name) => {
+    userActive
+      ? navigate(`movie/${name}`) && setShowMovie(false)
+      : setShowMovie(true);
+  };
+
+  console.log(movieFilter);
 
   return (
     <>
       <div className="view_movie_color"></div>
-      <section className="view_movie_card">
-        <h1>Filtrado por: año (2020) </h1>
+      <Link to="/" className="view_movie_btn_return">
+        Regresar
+      </Link>
+      <section className="view_movie_card" style={{ transition: "3s ease" }}>
+        <h1>
+          Filtrado por: {type} ({category})
+        </h1>
         <div className="view_movie_contain_cards">
-          <article className="view_movie_content">
-            <div className="view_movie_info">
-              <div className="view_movie_img">
-                <img src={wars} alt="" />
-              </div>
-              <div className="view_movie_desc">
-                <h2>Matrix</h2>
-                <p>
-                  Lorem ipsum dolor sit, amet consectetur adipisicing elit.
-                  Laboriosam error iusto vel! Tenetur veniam odio ipsum rerum
-                  temporibus sunt alias autem repellat ex. Error itaque fuga
-                  minima consectetur molestiae tenetur.
-                </p>
-              </div>
-              <div className="view_movie_buttons">
-                <button className="view_movie_btn btn_view_more">Ver</button>
-                <button className="view_movie_btn btn_rented_movie">
-                  Rentar
-                </button>
-                <button className="view_movie_btn btn_count_movie">
-                  Cantidad
-                </button>
-              </div>
+          {movieFilter.length > 0 ? (
+            movieFilter.map((movie) => {
+              return (
+                <article key={movie.id} className="view_movie_content">
+                  <div className="view_movie_info">
+                    <div className="view_movie_img">
+                      <img src={movie.image} alt="" />
+                    </div>
+                    <div className="view_movie_desc">
+                      <h2>{movie.name}</h2>
+                      <p>{movie.synopsis}</p>
+                    </div>
+                    <div className="view_movie_buttons">
+                      <button
+                        className="view_movie_btn btn_view_more"
+                        onClick={() => goToViewAloneMovie(movie.name)}
+                      >
+                        Ver
+                      </button>
+                      <button className="view_movie_btn btn_rented_movie">
+                        Comprar
+                      </button>
+                      <p className="btn_count_movie">
+                        Cantidad: {movie.cantidad}
+                      </p>
+                    </div>
+                  </div>
+                </article>
+              );
+            })
+          ) : (
+            <div className="showAlertMessage">
+              <h1>No hay de esta categoria</h1>
             </div>
-          </article>
-          <article className="view_movie_content">
-            <div className="view_movie_info">
-              <div className="view_movie_img">
-                <img src={wars} alt="" />
-              </div>
-              <div className="view_movie_desc">
-                <h2>Matrix</h2>
-                <p>
-                  Lorem ipsum dolor sit, amet consectetur adipisicing elit.
-                  Laboriosam error iusto vel! Tenetur veniam odio ipsum rerum
-                  temporibus sunt alias autem repellat ex. Error itaque fuga
-                  minima consectetur molestiae tenetur.
-                </p>
-              </div>
-              <div className="view_movie_buttons">
-                <button className="view_movie_btn btn_view_more">Ver</button>
-                <button className="view_movie_btn btn_rented_movie">
-                  Rentar
-                </button>
-                <button className="view_movie_btn btn_count_movie">
-                  Cantidad
-                </button>
-              </div>
-            </div>
-          </article>
-          <article className="view_movie_content">
-            <div className="view_movie_info">
-              <div className="view_movie_img">
-                <img src={wars} alt="" />
-              </div>
-              <div className="view_movie_desc">
-                <h2>Matrix</h2>
-                <p>
-                  Lorem ipsum dolor sit, amet consectetur adipisicing elit.
-                  Laboriosam error iusto vel! Tenetur veniam odio ipsum rerum
-                  temporibus sunt alias autem repellat ex. Error itaque fuga
-                  minima consectetur molestiae tenetur.
-                </p>
-              </div>
-              <div className="view_movie_buttons">
-                <button className="view_movie_btn btn_view_more">Ver</button>
-                <button className="view_movie_btn btn_rented_movie">
-                  Rentar
-                </button>
-                <button className="view_movie_btn btn_count_movie">
-                  Cantidad
-                </button>
-              </div>
-            </div>
-          </article>
+          )}
         </div>
       </section>
+      {showMovie && <ModalScreen setShowMovie={setShowMovie} />}
     </>
   );
 };
