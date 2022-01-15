@@ -3,12 +3,12 @@ import { getFirestore } from "firebase/firestore";
 import { getAuth, GoogleAuthProvider } from "@firebase/auth";
 
 const firebaseConfig = {
-  apiKey: "AIzaSyA8Eae0wOpJvnC11a3lmKA2CtvUj8MijDM",
-  authDomain: "posters-movies.firebaseapp.com",
-  projectId: "posters-movies",
-  storageBucket: "posters-movies.appspot.com",
-  messagingSenderId: "88321570660",
-  appId: "1:88321570660:web:ba009e42afe5f8bcdb6c71",
+  apiKey: process.env.REACT_APP_APIKEY,
+  authDomain: process.env.REACT_APP_AUTHDOMAIN,
+  projectId: process.env.REACT_APP_PROJECTID,
+  storageBucket: process.env.REACT_APP_STORAGEBUCKET,
+  messagingSenderId: process.env.REACT_APP_MESSAGINGSENDERID,
+  appId: process.env.REACT_APP_APPID,
 };
 
 const app = initializeApp(firebaseConfig);

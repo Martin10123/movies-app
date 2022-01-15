@@ -24,33 +24,41 @@
 .ul_price,
 .ul_votes,
 .ul_rented {
-  width: 90%;
-  border-radius: 1.4rem;
+  width: 100%;
+  height: 0;
+  overflow: hidden;
+  opacity: -1;
   position: absolute;
-  left: 1.4rem;
+  left: 0;
   background: #ffffff;
   color: #7510f7;
   transition: 2s ease-in-out;
 }
 
+.active {
+  height: auto;
+  opacity: 1;
+  transition: 2s ease-in-out;
+}
+
 .ul_types {
-  top: 16rem;
+  top: 15rem;
 }
 
 .ul_year {
-  top: 21rem;
+  top: 20rem;
 }
 
 .ul_price {
-  top: 26rem;
+  top: 25rem;
 }
 
 .ul_votes {
-  top: 31rem;
+  top: 30rem;
 }
 
 .ul_rented {
-  top: 36rem;
+  top: 35rem;
 }
 
 .navbar_dropdown ul > li {
@@ -59,7 +67,7 @@
   border-bottom: 1px solid;
 }
 
-@media (min-width: 768px) {
+/* @media (min-width: 768px) {
   .navbar_dropdown {
     padding: 2rem 0;
   }
@@ -109,4 +117,4 @@
   .social_network {
     font-size: 2.5rem;
   }
-}
+} */

@@ -20,15 +20,21 @@ const Features = ({
     <div className="navbar_dropdown" onClick={() => handleShowInfo(id)}>
       <Icono className={classSvg} />
       <p>{type}</p>
-      {showByID === id && showFeatures && (
-        <ul className={`${classCom}`}>
+      {
+        <ul
+          className={
+            showByID === id && showFeatures
+              ? `${classCom} active`
+              : `${classCom}`
+          }
+        >
           {options.map((option, i) => (
             <li onClick={() => handleClick(option, type)} key={i}>
               {option}
             </li>
           ))}
         </ul>
-      )}
+      }
     </div>
   );
 };

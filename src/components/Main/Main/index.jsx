@@ -1,5 +1,6 @@
-import React, { useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import Carousel from "react-multi-carousel";
+import { UserActive } from "../../../Contexts/UserContext";
 import { responsive } from "../../../helpers/caracteristcas";
 
 import moviesFalse from "../../../movieFalse";
@@ -14,7 +15,26 @@ import FooterScreen from "../../Footer";
 import "./main.css";
 
 const MainScreen = () => {
+  const { userActive } = useContext(UserActive);
   const [showMovie, setShowMovie] = useState(false);
+  const [boxLikes, setBoxLikes] = useState(
+    JSON.parse(localStorage.getItem("movieID") || "[]")
+  );
+
+  useEffect(() => {
+    localStorage.setItem("movieID", JSON.stringify(boxLikes));
+  }, [boxLikes]);
+
+  const likeToMovie = (movie__name, user__uid, movie__id) => {
+    const movieUser = { movie__name, user__uid, movie__id };
+    setBoxLikes((movie) => [...movie, movieUser]);
+  };
+
+  const removeLikeToMovie = (movie__id) => {
+    boxLikes.filter(
+      (movie, i) => movie.movie__id === movie__id && boxLikes.splice(i, 1)
+    );
+  };
 
   return (
     <>
@@ -29,6 +49,10 @@ const MainScreen = () => {
                 key={movie.id}
                 movie={movie}
                 setShowMovie={setShowMovie}
+                likeToMovie={likeToMovie}
+                userActive={userActive}
+                boxLikes={boxLikes}
+                removeLikeToMovie={removeLikeToMovie}
               />
             ))}
           </div>
@@ -44,6 +68,10 @@ const MainScreen = () => {
                     key={movie.id}
                     movie={movie}
                     setShowMovie={setShowMovie}
+                    likeToMovie={likeToMovie}
+                    userActive={userActive}
+                    boxLikes={boxLikes}
+                    removeLikeToMovie={removeLikeToMovie}
                   />
                 )
             )}
@@ -59,6 +87,10 @@ const MainScreen = () => {
                     key={movie.id}
                     movie={movie}
                     setShowMovie={setShowMovie}
+                    likeToMovie={likeToMovie}
+                    userActive={userActive}
+                    boxLikes={boxLikes}
+                    removeLikeToMovie={removeLikeToMovie}
                   />
                 )
             )}
@@ -74,6 +106,10 @@ const MainScreen = () => {
                     key={movie.id}
                     movie={movie}
                     setShowMovie={setShowMovie}
+                    likeToMovie={likeToMovie}
+                    userActive={userActive}
+                    boxLikes={boxLikes}
+                    removeLikeToMovie={removeLikeToMovie}
                   />
                 )
             )}
@@ -83,7 +119,9 @@ const MainScreen = () => {
         <InformationScreen />
       </main>
       <FooterScreen />
-      {showMovie && <ModalScreen setShowMovie={setShowMovie} />}
+      {showMovie && (
+        <ModalScreen setShowMovie={setShowMovie} likeToMovie={likeToMovie} />
+      )}
     </>
   );
 };

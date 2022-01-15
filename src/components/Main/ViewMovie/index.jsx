@@ -16,11 +16,9 @@ const ViewMovie = () => {
 
   const goToViewAloneMovie = (name) => {
     userActive
-      ? navigate(`movie/${name}`) && setShowMovie(false)
+      ? navigate(`/movie/${name}`) && setShowMovie(false)
       : setShowMovie(true);
   };
-
-  console.log(movieFilter);
 
   return (
     <>

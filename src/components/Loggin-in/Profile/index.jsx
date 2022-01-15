@@ -15,6 +15,8 @@ const ProfileScreen = () => {
     navigate("/");
   };
 
+  const likesMovies = JSON.parse(localStorage.getItem("movieID") || "[]");
+
   return (
     <section className="user_container">
       <div className="user_container_butons">
@@ -63,8 +65,12 @@ const ProfileScreen = () => {
           <div className="contain_ul_movies">
             <strong>Peliculas que te gustan: </strong>
             <ul>
-              <li>- Spiderman</li>
-              <li>- Goku</li>
+              {likesMovies.map(
+                (movie) =>
+                  movie.user__uid === userActive?.uid && (
+                    <li key={movie.movie__name}>- {movie.movie__name}</li>
+                  )
+              )}
             </ul>
           </div>
         </section>

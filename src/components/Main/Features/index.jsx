@@ -1,11 +1,13 @@
-import React, { useMemo } from "react";
+import React, { useContext, useMemo } from "react";
 import {
   AiFillMessage,
   AiFillDislike,
   AiOutlineHeart,
   AiFillLike,
 } from "react-icons/ai";
+import { FcLike } from "react-icons/fc";
 import { useNavigate, useParams } from "react-router-dom";
+import { UserActive } from "../../../Contexts/UserContext";
 import { getMovieByID } from "../../../Selector/selectorByID";
 
 import ComentariesScreen from "../../Comentaries";
@@ -15,6 +17,7 @@ import "./features.css";
 const FeaturesMovie = () => {
   const { movieID } = useParams();
   const navigate = useNavigate();
+  const { userActive } = useContext(UserActive);
 
   const movie = useMemo(() => getMovieByID(movieID), [movieID]);
   const {
@@ -29,6 +32,13 @@ const FeaturesMovie = () => {
     cantidad,
     image,
   } = movie;
+
+  const boxLikes = JSON.parse(localStorage.getItem("movieID") || "[]");
+
+  const isLikes = boxLikes.some(
+    (element) =>
+      element.movie__name === name && element.user__uid === userActive?.uid
+  );
 
   const sentMain = () => {
     navigate("/");
@@ -50,7 +60,11 @@ const FeaturesMovie = () => {
               <div className="features_date">
                 <span className="features_svg_comment">
                   <AiFillMessage className="features_svg" />
-                  <AiOutlineHeart className="features_svg" />
+                  {isLikes ? (
+                    <FcLike className="features_svg" />
+                  ) : (
+                    <AiOutlineHeart className="features_svg" />
+                  )}
                 </span>
                 <span className="features_svg_popular">
                   <p>

@@ -1,10 +1,16 @@
-import React, { useContext } from "react";
+import React from "react";
 import { AiFillMessage, AiOutlineHeart } from "react-icons/ai";
+import { FcLike } from "react-icons/fc";
 import { useNavigate } from "react-router-dom";
-import { UserActive } from "../../../Contexts/UserContext";
 
-const SectionOfCard = ({ movie, setShowMovie }) => {
-  const { userActive } = useContext(UserActive);
+const SectionOfCard = ({
+  movie,
+  setShowMovie,
+  likeToMovie,
+  userActive,
+  boxLikes,
+  removeLikeToMovie,
+}) => {
   const navigate = useNavigate();
 
   const goToMovieComplete = () => {
@@ -16,6 +22,12 @@ const SectionOfCard = ({ movie, setShowMovie }) => {
     }
   };
 
+  const isLikes = boxLikes.some(
+    (element) =>
+      element.movie__name === movie.name &&
+      element.user__uid === userActive?.uid
+  );
+
   return (
     <>
       <div className="main_card">
@@ -25,10 +37,24 @@ const SectionOfCard = ({ movie, setShowMovie }) => {
         <div className="main_card_info">
           <span className="main_span_info_date">
             <span className="main_date">{movie.year}</span>
-            <span className="main_svgs">
-              <AiFillMessage className="svg" />
-              <AiOutlineHeart className="svg" />
-            </span>
+            {userActive && (
+              <span className="main_svgs">
+                <AiFillMessage className="svg" />
+                {isLikes ? (
+                  <FcLike
+                    className="svg"
+                    onClick={() => removeLikeToMovie(movie.id)}
+                  />
+                ) : (
+                  <AiOutlineHeart
+                    className="svg"
+                    onClick={() =>
+                      likeToMovie(movie.name, userActive?.uid, movie.id)
+                    }
+                  />
+                )}
+              </span>
+            )}
           </span>
           <div className="main_description">
             <h3>{movie.name}</h3>

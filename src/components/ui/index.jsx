@@ -108,10 +108,12 @@ const NavbarScreen = () => {
               );
             })}
           </div>
-          <span onClick={startLogout} className="navbar_span_logout">
-            <BiLogIn className="logout_svg" />
-            <p>Logout</p>
-          </span>
+          {userActive !== null && (
+            <span onClick={startLogout} className="navbar_span_logout">
+              <BiLogIn className="logout_svg" />
+              <p>Logout</p>
+            </span>
+          )}
           <div className="navbar_links">
             {socialNetwork.map((red) => {
               const RedIcon = red.icon;
