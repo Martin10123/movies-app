@@ -111,6 +111,10 @@ ul.features_ul > li {
   padding: 0.3rem 0;
 }
 
+.features_rented {
+  font-size: 1.2rem;
+}
+
 .features_buttons {
   width: 100%;
   padding: 1rem 0;

@@ -1,6 +1,7 @@
 import React, { useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import { UserActive } from "../../../Contexts/UserContext";
+import dateTime from "../../../helpers/datePicker";
 
 import profile from "../../../images/world.jpg";
 
@@ -16,6 +17,7 @@ const ProfileScreen = () => {
   };
 
   const likesMovies = JSON.parse(localStorage.getItem("movieID") || "[]");
+  const boxRented = JSON.parse(localStorage.getItem("movieRented") || "[]");
 
   return (
     <section className="user_container">
@@ -58,8 +60,18 @@ const ProfileScreen = () => {
           <div className="contain_ul_movies">
             <strong>Peliculas rentadas: </strong>
             <ul>
-              <li>- Spiderman</li>
-              <li>- Goku</li>
+              {boxRented.map(
+                (rented) =>
+                  rented.uid === userActive?.uid && (
+                    <li key={rented.name}>
+                      - {rented.name} --
+                      <span className="movie_contain">
+                        {`  ( ${dateTime(rented.start)} --
+                        ${dateTime(rented.end)}) `}
+                      </span>
+                    </li>
+                  )
+              )}
             </ul>
           </div>
           <div className="contain_ul_movies">

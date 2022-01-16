@@ -1,4 +1,4 @@
-import React, { useContext, useMemo } from "react";
+import React, { useContext, useMemo, useState } from "react";
 import {
   AiFillMessage,
   AiFillDislike,
@@ -11,6 +11,7 @@ import { UserActive } from "../../../Contexts/UserContext";
 import { getMovieByID } from "../../../Selector/selectorByID";
 
 import ComentariesScreen from "../../Comentaries";
+import RentedModal from "../../Modals/RentedMovie/RentedModal";
 
 import "./features.css";
 
@@ -20,24 +21,19 @@ const FeaturesMovie = () => {
   const { userActive } = useContext(UserActive);
 
   const movie = useMemo(() => getMovieByID(movieID), [movieID]);
-  const {
-    name,
-    year,
-    type,
-    place,
-    votes,
-    synopsis,
-    price,
-    rented,
-    cantidad,
-    image,
-  } = movie;
+  const { name, year, type, place, votes, synopsis, price, cantidad, image } =
+    movie;
 
+  const [showModalRented, setShowModalRented] = useState(false);
   const boxLikes = JSON.parse(localStorage.getItem("movieID") || "[]");
+  const boxRented = JSON.parse(localStorage.getItem("movieRented") || "[]");
 
   const isLikes = boxLikes.some(
-    (element) =>
-      element.movie__name === name && element.user__uid === userActive?.uid
+    (like) => like.movie__name === name && like.user__uid === userActive?.uid
+  );
+
+  const isRented = boxRented.some(
+    (rented) => rented.name === name && rented.uid === userActive?.uid
   );
 
   const sentMain = () => {
@@ -85,12 +81,21 @@ const FeaturesMovie = () => {
                   <li>Type: {type.map((type) => type.concat(", "))}</li>
                   <li>Place: {place}</li>
                   <li>Price: {price}</li>
-                  <li>Rented: {rented ? "Si" : "No"}</li>
+                  <li>Rented: {isRented ? "Si" : "No"}</li>
                   <li>Cantidad restante: {cantidad}</li>
                 </ul>
               </span>
               <div className="features_buttons">
-                <button className="btn_buy">Rentar pelicula</button>
+                {isRented ? (
+                  <p className="features_rented">Ya rentaste esta pelicula</p>
+                ) : (
+                  <button
+                    onClick={() => setShowModalRented(true)}
+                    className="btn_buy"
+                  >
+                    Rentar pelicula
+                  </button>
+                )}
                 <button className="btn_buy">Comprar pelicula</button>
               </div>
             </div>
@@ -98,6 +103,14 @@ const FeaturesMovie = () => {
         </div>
       </article>
       <ComentariesScreen />
+      {showModalRented && (
+        <RentedModal
+          name={name}
+          uid={userActive?.uid}
+          id={movieID}
+          setShowModalRented={setShowModalRented}
+        />
+      )}
     </>
   );
 };

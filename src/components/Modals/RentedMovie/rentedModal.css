@@ -1,0 +1,145 @@
+.modal_rented {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 9999;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.modal_rented .modal_rented_content {
+  position: relative;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  background-color: white;
+  color: black;
+  height: 43%;
+  width: 90%;
+  border-radius: 0.7rem;
+}
+
+.modal_rented_info {
+  display: flex;
+  box-sizing: border-box;
+  padding: 10px;
+  height: 100%;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+h2.modal_title {
+  width: 100%;
+  height: 100%;
+  font-size: 3rem;
+  color: #00000059;
+  position: absolute;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  z-index: -1;
+  transform: skewY(17deg);
+}
+
+.modal_rented_info > p.modal_rented_p {
+  width: 100%;
+  position: fixed;
+  top: 1rem;
+  left: 1rem;
+  font-size: 1.2rem;
+  color: #00000091;
+}
+
+.modal_rented_btn {
+  width: 100%;
+  height: 100%;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  opacity: 1;
+  transition: 2s ease;
+  align-items: center;
+  justify-items: center;
+}
+
+.none {
+  transition: 2s ease;
+  transform: translate(40rem);
+  opacity: -1;
+}
+
+.modal_content_form {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+}
+
+.modal_content_form > h2 {
+  font-size: 2.2rem;
+  color: #000000a6;
+}
+
+.modal_data_start {
+  font-size: 1.7rem;
+  color: #000000a6;
+}
+
+.modal_info_date {
+  width: 100%;
+  display: grid;
+  justify-items: center;
+  gap: 2rem;
+}
+
+.btn_modal_true {
+  width: 70%;
+  height: 3rem;
+  font-size: 1.2rem;
+  background: #00ffdc;
+  border: 1px solid #271bff;
+  color: white;
+  cursor: pointer;
+  box-shadow: -7px 7px 4px 2px #000000a8;
+  transition: 1.5s ease-in-out;
+}
+
+@media (min-width: 540px) {
+  .modal .modal_content {
+    display: flex;
+    justify-content: center;
+  }
+
+  .modal_info {
+    width: 75%;
+  }
+}
+
+@media (min-width: 800px) {
+  .modal_rented .modal_rented_content {
+    width: 63%;
+  }
+}
+
+@media (min-width: 1020px) {
+  .modal_rented .modal_rented_content {
+    width: 40%;
+  }
+
+  .btn_modal_rented1:hover,
+  .btn_modal_rented:hover,
+  .btn_modal_true:hover {
+    transform: scale(1.1);
+    transition: 1.5s ease-in-out;
+  }
+}
+
+@media (min-width: 1500px) {
+  .modal_rented .modal_rented_content {
+    width: 30%;
+  }
+}

@@ -8,9 +8,9 @@ import SectionOfCard from "./SectionOfCard";
 import NavbarScreen from "../../ui";
 import HeaderScreen from "../../Header";
 import InformationScreen from "../Information";
-import ModalScreen from "../../Modals";
 
 import FooterScreen from "../../Footer";
+import ModalScreen from "../../Modals/RestringModal";
 
 import "./main.css";
 

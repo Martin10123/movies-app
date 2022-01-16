@@ -2,7 +2,7 @@ import React, { useContext, useState } from "react";
 import { Link, useNavigate, useParams } from "react-router-dom";
 import { UserActive } from "../../../Contexts/UserContext";
 import { getMovieByName } from "../../../Selector/selectorByName";
-import ModalScreen from "../../Modals";
+import ModalScreen from "../../Modals/RestringModal";
 
 import "./viewMovie.css";
 

@@ -61,6 +61,10 @@ button.user_close,
   grid-gap: 1.3rem;
 }
 
+.movie_contain {
+  color: #0000007a;
+}
+
 .user_personal_info,
 .user_info_movies {
   width: 96%;
