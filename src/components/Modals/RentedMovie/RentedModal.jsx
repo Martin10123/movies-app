@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import dateTime from "../../../helpers/datePicker";
 
 import "./rentedModal.css";
 
@@ -28,8 +27,8 @@ const RentedModal = ({ name, setShowModalRented, start, end }) => {
           <div className={next === 1 ? "modal_content_form" : "none"}>
             <h2>Fecha</h2>
             <div className="modal_info_date">
-              <p className="modal_data_start">Desde {dateTime(start)}</p>
-              <p className="modal_data_start">Hasta {dateTime(end)}</p>
+              <p className="modal_data_start">Desde {start}</p>
+              <p className="modal_data_start">Hasta {end}</p>
             </div>
             <button
               onClick={() => setShowModalRented(false)}

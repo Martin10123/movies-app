@@ -9,6 +9,7 @@ import { FcLike } from "react-icons/fc";
 import { useNavigate, useParams } from "react-router-dom";
 import { MovieSelectToRent } from "../../../Contexts/MovieRented";
 import { UserActive } from "../../../Contexts/UserContext";
+import dateTime from "../../../helpers/datePicker";
 import { getMovieByID } from "../../../Selector/selectorByID";
 
 import ComentariesScreen from "../../Comentaries";
@@ -17,16 +18,19 @@ import RentedModal from "../../Modals/RentedMovie/RentedModal";
 import "./features.css";
 
 const FeaturesMovie = () => {
-  const { movieID } = useParams();
   const navigate = useNavigate();
+  const { movieID } = useParams();
   const { userActive } = useContext(UserActive);
+  const [showModalRented, setShowModalRented] = useState(false);
   const { boxRented, setBoxRented, start, end } = useContext(MovieSelectToRent);
+
+  const newStartDate = dateTime(start);
+  const newEndDate = dateTime(end);
 
   const movie = useMemo(() => getMovieByID(movieID), [movieID]);
   const { name, year, type, place, votes, synopsis, price, cantidad, image } =
     movie;
 
-  const [showModalRented, setShowModalRented] = useState(false);
   const boxLikes = JSON.parse(localStorage.getItem("movieID") || "[]");
 
   const isLikes = boxLikes.some(
@@ -46,13 +50,31 @@ const FeaturesMovie = () => {
     setShowModalRented(true);
     setBoxRented((moviesRented) => [
       ...moviesRented,
-      { name, uid: userActive?.uid, start, end },
+      {
+        name,
+        uid: userActive?.uid,
+        start: newStartDate,
+        end: newEndDate,
+      },
     ]);
   };
 
   const sentMain = () => {
     navigate("/");
   };
+
+  const dateFinishMovie = new Date().getTime();
+
+  const dateReturnMovie = boxRented.filter(
+    (movieEnd) => movieEnd.name === name && movieEnd.end
+  );
+
+  if (dateTime(dateFinishMovie) === dateReturnMovie[0]?.end) {
+    boxRented.filter(
+      (movie, i) => movie.name === name && boxRented.splice(i, 1)
+    );
+    // navigate(0);
+  }
 
   return (
     <>
@@ -126,8 +148,8 @@ const FeaturesMovie = () => {
           setShowModalRented={setShowModalRented}
           boxRented={boxRented}
           setBoxRented={setBoxRented}
-          start={start}
-          end={end}
+          start={newStartDate}
+          end={newEndDate}
         />
       )}
     </>

@@ -9,6 +9,8 @@ export const MovieContextRented = ({ children }) => {
   const start = new Date().valueOf();
   const end = start + 864000000;
 
+  // const end = start + 10000;
+
   const returnValues = { boxRented, setBoxRented, start, end };
 
   return (
