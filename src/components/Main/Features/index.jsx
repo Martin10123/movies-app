@@ -1,4 +1,4 @@
-import React, { useContext, useMemo, useState } from "react";
+import React, { useContext, useEffect, useMemo, useState } from "react";
 import {
   AiFillMessage,
   AiFillDislike,
@@ -7,6 +7,7 @@ import {
 } from "react-icons/ai";
 import { FcLike } from "react-icons/fc";
 import { useNavigate, useParams } from "react-router-dom";
+import { MovieSelectToRent } from "../../../Contexts/MovieRented";
 import { UserActive } from "../../../Contexts/UserContext";
 import { getMovieByID } from "../../../Selector/selectorByID";
 
@@ -19,6 +20,7 @@ const FeaturesMovie = () => {
   const { movieID } = useParams();
   const navigate = useNavigate();
   const { userActive } = useContext(UserActive);
+  const { boxRented, setBoxRented, start, end } = useContext(MovieSelectToRent);
 
   const movie = useMemo(() => getMovieByID(movieID), [movieID]);
   const { name, year, type, place, votes, synopsis, price, cantidad, image } =
@@ -26,15 +28,27 @@ const FeaturesMovie = () => {
 
   const [showModalRented, setShowModalRented] = useState(false);
   const boxLikes = JSON.parse(localStorage.getItem("movieID") || "[]");
-  const boxRented = JSON.parse(localStorage.getItem("movieRented") || "[]");
 
   const isLikes = boxLikes.some(
     (like) => like.movie__name === name && like.user__uid === userActive?.uid
   );
 
-  const isRented = boxRented.some(
+  const isRented = boxRented.some((rented) => rented.name === name);
+  const isRentedUser = boxRented.some(
     (rented) => rented.name === name && rented.uid === userActive?.uid
   );
+
+  useEffect(() => {
+    localStorage.setItem("movieRented", JSON.stringify(boxRented));
+  }, [boxRented]);
+
+  const startRentMovie = () => {
+    setShowModalRented(true);
+    setBoxRented((moviesRented) => [
+      ...moviesRented,
+      { name, uid: userActive?.uid, start, end },
+    ]);
+  };
 
   const sentMain = () => {
     navigate("/");
@@ -87,12 +101,13 @@ const FeaturesMovie = () => {
               </span>
               <div className="features_buttons">
                 {isRented ? (
-                  <p className="features_rented">Ya rentaste esta pelicula</p>
+                  <p className="features_rented">
+                    {isRentedUser
+                      ? "Ya rentaste esta pelicula"
+                      : "Ya fue rentada"}
+                  </p>
                 ) : (
-                  <button
-                    onClick={() => setShowModalRented(true)}
-                    className="btn_buy"
-                  >
+                  <button className="btn_buy" onClick={startRentMovie}>
                     Rentar pelicula
                   </button>
                 )}
@@ -109,6 +124,10 @@ const FeaturesMovie = () => {
           uid={userActive?.uid}
           id={movieID}
           setShowModalRented={setShowModalRented}
+          boxRented={boxRented}
+          setBoxRented={setBoxRented}
+          start={start}
+          end={end}
         />
       )}
     </>

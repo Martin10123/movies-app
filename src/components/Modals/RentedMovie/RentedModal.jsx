@@ -1,9 +1,9 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import dateTime from "../../../helpers/datePicker";
 
 import "./rentedModal.css";
 
-const RentedModal = ({ name, uid, setShowModalRented }) => {
+const RentedModal = ({ name, setShowModalRented, start, end }) => {
   const [next, setNext] = useState(0);
 
   const nextPage = () => {
@@ -13,16 +13,6 @@ const RentedModal = ({ name, uid, setShowModalRented }) => {
       setNext((next) => next + 1);
     }
   };
-
-  const start = new Date().valueOf();
-  const end = start + 864000000;
-
-  useEffect(() => {
-    localStorage.setItem(
-      "movieRented",
-      JSON.stringify([{ name, uid, start, end }])
-    );
-  }, [name, uid, start, end]);
 
   return (
     <div className="modal_rented">

@@ -1,6 +1,7 @@
-import { BrowserRouter } from "react-router-dom";
 import AppRouter from "./routers/AppRouter";
+import { BrowserRouter } from "react-router-dom";
 import { UserContext } from "./Contexts/UserContext";
+import { MovieContextRented } from "./Contexts/MovieRented";
 
 import "react-multi-carousel/lib/styles.css";
 import "react-toastify/dist/ReactToastify.css";
@@ -10,7 +11,9 @@ function App() {
   return (
     <BrowserRouter>
       <UserContext>
-        <AppRouter />
+        <MovieContextRented>
+          <AppRouter />
+        </MovieContextRented>
       </UserContext>
     </BrowserRouter>
   );
