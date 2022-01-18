@@ -16,7 +16,7 @@ const ProfileScreen = () => {
     navigate("/");
   };
 
-  const likesMovies = JSON.parse(localStorage.getItem("movieID") || "[]");
+  const likesMovies = JSON.parse(localStorage.getItem("movieLikes") || "[]");
   const boxRented = JSON.parse(localStorage.getItem("movieRented") || "[]");
 
   return (

@@ -11,7 +11,9 @@ export const MovieContextRented = ({ children }) => {
 
   // const end = start + 10000;
 
-  const returnValues = { boxRented, setBoxRented, start, end };
+  const dateFinishMovie = new Date().getTime();
+
+  const returnValues = { boxRented, setBoxRented, dateFinishMovie, start, end };
 
   return (
     <MovieSelectToRent.Provider value={returnValues}>

@@ -1,6 +1,6 @@
 .navbar_dropdown {
   width: 100%;
-  padding: 1.5rem 0;
+  padding: 2.285rem 0;
   border-bottom: 1px solid;
   display: flex;
   align-items: center;
@@ -42,23 +42,23 @@
 }
 
 .ul_types {
-  top: 15rem;
+  top: 16.7rem;
 }
 
 .ul_year {
-  top: 20rem;
+  top: 23.3rem;
 }
 
 .ul_price {
-  top: 25rem;
+  top: 29.9rem;
 }
 
 .ul_votes {
-  top: 30rem;
+  top: 36.5rem;
 }
 
 .ul_rented {
-  top: 35rem;
+  top: 43.2rem;
 }
 
 .navbar_dropdown ul > li {

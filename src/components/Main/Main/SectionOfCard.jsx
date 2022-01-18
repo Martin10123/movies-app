@@ -43,7 +43,9 @@ const SectionOfCard = ({
                 {isLikes ? (
                   <FcLike
                     className="svg"
-                    onClick={() => removeLikeToMovie(movie.id)}
+                    onClick={() =>
+                      removeLikeToMovie(movie.name, userActive?.uid)
+                    }
                   />
                 ) : (
                   <AiOutlineHeart

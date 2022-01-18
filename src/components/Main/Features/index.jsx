@@ -22,7 +22,8 @@ const FeaturesMovie = () => {
   const { movieID } = useParams();
   const { userActive } = useContext(UserActive);
   const [showModalRented, setShowModalRented] = useState(false);
-  const { boxRented, setBoxRented, start, end } = useContext(MovieSelectToRent);
+  const { boxRented, setBoxRented, dateFinishMovie, start, end } =
+    useContext(MovieSelectToRent);
 
   const newStartDate = dateTime(start);
   const newEndDate = dateTime(end);
@@ -62,8 +63,6 @@ const FeaturesMovie = () => {
   const sentMain = () => {
     navigate("/");
   };
-
-  const dateFinishMovie = new Date().getTime();
 
   const dateReturnMovie = boxRented.filter(
     (movieEnd) => movieEnd.name === name && movieEnd.end

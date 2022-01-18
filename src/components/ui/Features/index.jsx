@@ -1,6 +1,6 @@
 import React from "react";
 
-import "./features.css";
+import "./featuresUi.css";
 
 const Features = ({
   id,
