@@ -85,6 +85,12 @@ const ProfileScreen = () => {
               )}
             </ul>
           </div>
+          <div className="contain_ul_movies">
+            <strong>Peliculas que compraste: </strong>
+            <ul>
+              <li>- Hola</li>
+            </ul>
+          </div>
         </section>
       </article>
     </section>

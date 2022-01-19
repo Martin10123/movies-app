@@ -6,7 +6,7 @@ import {
   AiFillLike,
 } from "react-icons/ai";
 import { FcLike } from "react-icons/fc";
-import { useNavigate, useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { MovieSelectToRent } from "../../../Contexts/MovieRented";
 import { UserActive } from "../../../Contexts/UserContext";
 import dateTime from "../../../helpers/datePicker";
@@ -18,34 +18,31 @@ import RentedModal from "../../Modals/RentedMovie/RentedModal";
 import "./features.css";
 
 const FeaturesMovie = () => {
-  const navigate = useNavigate();
   const { movieID } = useParams();
-  const { userActive } = useContext(UserActive);
-  const [showModalRented, setShowModalRented] = useState(false);
+  const movie = useMemo(() => getMovieByID(movieID), [movieID]);
+
   const { boxRented, setBoxRented, dateFinishMovie, start, end } =
     useContext(MovieSelectToRent);
+  const { userActive } = useContext(UserActive);
+  const [showModalRented, setShowModalRented] = useState(false);
+  const [boxBuyMovie, setBoxBuyMovie] = useState(
+    JSON.parse(localStorage.getItem("movieBuy") || "[]")
+  );
 
-  const newStartDate = dateTime(start);
-  const newEndDate = dateTime(end);
-
-  const movie = useMemo(() => getMovieByID(movieID), [movieID]);
   const { name, year, type, place, votes, synopsis, price, cantidad, image } =
     movie;
 
   const boxLikes = JSON.parse(localStorage.getItem("movieID") || "[]");
 
-  const isLikes = boxLikes.some(
-    (like) => like.movie__name === name && like.user__uid === userActive?.uid
-  );
-
-  const isRented = boxRented.some((rented) => rented.name === name);
-  const isRentedUser = boxRented.some(
-    (rented) => rented.name === name && rented.uid === userActive?.uid
-  );
-
   useEffect(() => {
     localStorage.setItem("movieRented", JSON.stringify(boxRented));
-  }, [boxRented]);
+    localStorage.setItem("movieBuy", JSON.stringify(boxBuyMovie));
+  }, [boxRented, boxBuyMovie]);
+
+  const newStartDate = dateTime(start);
+  const newEndDate = dateTime(end);
+
+  // Funcion para rentar la pelicula
 
   const startRentMovie = () => {
     setShowModalRented(true);
@@ -60,13 +57,36 @@ const FeaturesMovie = () => {
     ]);
   };
 
-  const sentMain = () => {
-    navigate("/");
+  // Funcion para comprar la pelicula
+
+  const startBuyMovie = () => {
+    setBoxBuyMovie((moviesBuy) => [
+      ...moviesBuy,
+      { name, uid: userActive?.uid },
+    ]);
   };
+
+  // Filtros para saber si la pelicula esta incluida en array de objectos donde se estan guardando en el localstorage
+
+  const isLikes = boxLikes.some(
+    (like) => like.movie__name === name && like.user__uid === userActive?.uid
+  );
+
+  const isRented = boxRented.some((rented) => rented.name === name);
+
+  const isRentedUser = boxRented.some(
+    (rented) => rented.name === name && rented.uid === userActive?.uid
+  );
+
+  const a = boxBuyMovie.filter((movie) => movie.name === name);
+
+  console.log(a.forEach((a) => a));
 
   const dateReturnMovie = boxRented.filter(
     (movieEnd) => movieEnd.name === name && movieEnd.end
   );
+
+  // Condición para saber si ya la pelicula expiro, aún falta terminar que se borre del localstorage cuando se finaliza el tiempo
 
   if (dateTime(dateFinishMovie) === dateReturnMovie[0]?.end) {
     boxRented.filter(
@@ -78,9 +98,9 @@ const FeaturesMovie = () => {
   return (
     <>
       <div className="features_background"></div>
-      <button className="features_btn_return" onClick={sentMain}>
+      <Link to="/" className="features_btn_return">
         Salir
-      </button>
+      </Link>
       <article className="features_box">
         <div className="features_content">
           <div className="feature_content_info">
@@ -132,7 +152,9 @@ const FeaturesMovie = () => {
                     Rentar pelicula
                   </button>
                 )}
-                <button className="btn_buy">Comprar pelicula</button>
+                <button className="btn_buy" onClick={startBuyMovie}>
+                  Comprar pelicula
+                </button>
               </div>
             </div>
           </div>
