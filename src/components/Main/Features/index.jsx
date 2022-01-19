@@ -11,6 +11,7 @@ import { MovieSelectToRent } from "../../../Contexts/MovieRented";
 import { UserActive } from "../../../Contexts/UserContext";
 import dateTime from "../../../helpers/datePicker";
 import { getMovieByID } from "../../../Selector/selectorByID";
+import load from "../../../images/load.svg";
 
 import ComentariesScreen from "../../Comentaries";
 import RentedModal from "../../Modals/RentedMovie/RentedModal";
@@ -25,6 +26,7 @@ const FeaturesMovie = () => {
     useContext(MovieSelectToRent);
   const { userActive } = useContext(UserActive);
   const [showModalRented, setShowModalRented] = useState(false);
+  const [showLoader, setShowLoader] = useState(false);
   const [boxBuyMovie, setBoxBuyMovie] = useState(
     JSON.parse(localStorage.getItem("movieBuy") || "[]")
   );
@@ -57,15 +59,6 @@ const FeaturesMovie = () => {
     ]);
   };
 
-  // Funcion para comprar la pelicula
-
-  const startBuyMovie = () => {
-    setBoxBuyMovie((moviesBuy) => [
-      ...moviesBuy,
-      { name, uid: userActive?.uid },
-    ]);
-  };
-
   // Filtros para saber si la pelicula esta incluida en array de objectos donde se estan guardando en el localstorage
 
   const isLikes = boxLikes.some(
@@ -77,10 +70,6 @@ const FeaturesMovie = () => {
   const isRentedUser = boxRented.some(
     (rented) => rented.name === name && rented.uid === userActive?.uid
   );
-
-  const a = boxBuyMovie.filter((movie) => movie.name === name);
-
-  console.log(a.forEach((a) => a));
 
   const dateReturnMovie = boxRented.filter(
     (movieEnd) => movieEnd.name === name && movieEnd.end
@@ -94,6 +83,31 @@ const FeaturesMovie = () => {
     );
     // navigate(0);
   }
+
+  // Condición para saber si ya la pelicula fue comprada
+
+  const isBuyUser = boxBuyMovie.some(
+    (buy) => buy.name === name && buy.uid === userActive?.uid
+  );
+
+  const movieBouthg = boxBuyMovie.filter((movie) => movie.name === name);
+
+  const cantidadRestante = cantidad - movieBouthg.length;
+
+  // Funcion para comprar la pelicula
+
+  const startBuyMovie = () => {
+    setShowLoader(true);
+    setTimeout(() => {
+      if (cantidadRestante !== 0) {
+        setBoxBuyMovie((moviesBuy) => [
+          ...moviesBuy,
+          { name, uid: userActive?.uid },
+        ]);
+      }
+      setShowLoader(false);
+    }, 5000);
+  };
 
   return (
     <>
@@ -137,7 +151,7 @@ const FeaturesMovie = () => {
                   <li>Place: {place}</li>
                   <li>Price: {price}</li>
                   <li>Rented: {isRented ? "Si" : "No"}</li>
-                  <li>Cantidad restante: {cantidad}</li>
+                  <li>Cantidad restante: {cantidadRestante}</li>
                 </ul>
               </span>
               <div className="features_buttons">
@@ -152,9 +166,17 @@ const FeaturesMovie = () => {
                     Rentar pelicula
                   </button>
                 )}
-                <button className="btn_buy" onClick={startBuyMovie}>
-                  Comprar pelicula
-                </button>
+                {isBuyUser ? (
+                  <p className="features_rented">Ya compraste esta pelicula</p>
+                ) : cantidadRestante === 0 ? (
+                  <p className="features_rented">
+                    Lo siento ya no hay de esta pelicula
+                  </p>
+                ) : (
+                  <button className="btn_buy" onClick={startBuyMovie}>
+                    Comprar pelicula
+                  </button>
+                )}
               </div>
             </div>
           </div>
@@ -172,6 +194,13 @@ const FeaturesMovie = () => {
           start={newStartDate}
           end={newEndDate}
         />
+      )}
+
+      {showLoader && (
+        <div className="loader_buy">
+          <h1>Comprando la pelicula {name}</h1>
+          <img src={load} alt="load" />
+        </div>
       )}
     </>
   );
