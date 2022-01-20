@@ -67,15 +67,11 @@
 }
 
 .comentaries_card > h2,
-.comentaries_card p:nth-child(2) {
+.comentaries_card p:nth-child(2),
+.opinion_date {
   padding: 1rem 0;
+  font-size: 1.7rem;
 }
-
-/* .comentaries_card p:nth-child(2) {
-}
-
-.comentaries_card > p:nth-child(3) {
-} */
 
 .comentaries_buttons {
   width: 100%;

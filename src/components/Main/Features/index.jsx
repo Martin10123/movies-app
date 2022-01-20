@@ -182,7 +182,7 @@ const FeaturesMovie = () => {
           </div>
         </div>
       </article>
-      <ComentariesScreen />
+      <ComentariesScreen movie_id={name} />
       {showModalRented && (
         <RentedModal
           name={name}
