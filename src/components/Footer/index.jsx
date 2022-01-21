@@ -22,25 +22,44 @@ const FooterScreen = () => {
       <div className="footer_contact">
         <h2>Encuentranos en</h2>
         <span className="footer_contact_socials">
-          <a href="https://wa.link/2995b6" className="social_network">
+          <a
+            href="https://wa.link/2995b6"
+            className="social_network"
+            rel="noreferrer"
+            target="_blank"
+          >
             <BsWhatsapp />
           </a>
           <a
             href="https://www.facebook.com/martinelias1012"
             className="social_network"
+            rel="noreferrer"
+            target="_blank"
           >
             <BsFacebook />
           </a>
           <a
             href="https://www.instagram.com/martinelias1012/"
             className="social_network"
+            rel="noreferrer"
+            target="_blank"
           >
             <BsInstagram />
           </a>
-          <a href="https://github.com/Martin10123" className="social_network">
+          <a
+            href="https://github.com/Martin10123"
+            className="social_network"
+            rel="noreferrer"
+            target="_blank"
+          >
             <BsGithub />
           </a>
-          <a href="mailto:martinsimarra4@gmail.com?" className="social_network">
+          <a
+            href="mailto:martinsimarra4@gmail.com?"
+            className="social_network"
+            rel="noreferrer"
+            target="_blank"
+          >
             <SiGmail />
           </a>
         </span>
@@ -60,7 +79,9 @@ const FooterScreen = () => {
             rows="10"
             autoComplete="off"
           />
-          <button type="submit">Enviar</button>
+          <button type="submit" onClick={(e) => e.preventDefault()}>
+            Enviar
+          </button>
         </form>
       </div>
     </footer>

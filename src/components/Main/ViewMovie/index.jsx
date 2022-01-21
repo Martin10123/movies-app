@@ -50,12 +50,6 @@ const ViewMovie = () => {
                       >
                         Ver
                       </button>
-                      <button className="view_movie_btn btn_rented_movie">
-                        Comprar
-                      </button>
-                      <p className="btn_count_movie">
-                        Cantidad: {movie.cantidad}
-                      </p>
                     </div>
                   </div>
                 </article>

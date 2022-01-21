@@ -67,10 +67,29 @@
 }
 
 .comentaries_card > h2,
-.comentaries_card p:nth-child(2),
 .opinion_date {
   padding: 1rem 0;
   font-size: 1.7rem;
+}
+
+.comentari_opinion {
+  padding: 1rem 0;
+  font-size: 1.7rem;
+}
+
+.comentari_opinion_large {
+  height: 11rem;
+  overflow: auto;
+  padding: 1rem 0;
+  font-size: 1.7rem;
+}
+
+.comentari_opinion_large::-webkit-scrollbar {
+  width: 0.5rem;
+}
+
+.comentari_opinion_large::-webkit-scrollbar-thumb {
+  background: #00c6f8ab;
 }
 
 .comentaries_buttons {
@@ -80,8 +99,8 @@
   align-items: center;
 }
 
-.comentaries_buttons > span:nth-child(1),
-.comentaries_buttons > span:nth-child(2) {
+.span_btn_like,
+.span_btn_disLike {
   width: 3rem;
   font-size: 1.4rem;
   padding-right: 1.5rem;
@@ -89,6 +108,11 @@
   align-items: center;
   justify-content: space-around;
   cursor: pointer;
+}
+
+.btn_like_no {
+  cursor: not-allowed;
+  pointer-events: none;
 }
 
 @media (min-width: 800px) {

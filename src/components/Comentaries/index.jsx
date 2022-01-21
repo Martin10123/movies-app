@@ -57,12 +57,10 @@ const ComentariesScreen = ({ movie_id }) => {
     }
   };
 
-  const handleDisLike = async (uuidUser, idMovie, isLike) => {
-    console.log(idMovie, uuidUser, isLike);
-
+  const handleDisLike = async (uuidUser, idMovie, isDislike) => {
     try {
       await updateDoc(doc(db, "opinions", idMovie), {
-        disLikes: isLike ? arrayRemove(uuidUser) : arrayUnion(uuidUser),
+        disLikes: isDislike ? arrayRemove(uuidUser) : arrayUnion(uuidUser),
       });
     } catch (error) {
       console.log(error);
