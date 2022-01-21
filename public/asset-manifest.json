@@ -1,0 +1,30 @@
+{
+  "files": {
+    "main.css": "/static/css/main.94f61a70.chunk.css",
+    "main.js": "/static/js/main.fa0c80aa.chunk.js",
+    "main.js.map": "/static/js/main.fa0c80aa.chunk.js.map",
+    "runtime-main.js": "/static/js/runtime-main.90974d83.js",
+    "runtime-main.js.map": "/static/js/runtime-main.90974d83.js.map",
+    "static/css/2.6e65bc66.chunk.css": "/static/css/2.6e65bc66.chunk.css",
+    "static/js/2.57fa5c7f.chunk.js": "/static/js/2.57fa5c7f.chunk.js",
+    "static/js/2.57fa5c7f.chunk.js.map": "/static/js/2.57fa5c7f.chunk.js.map",
+    "index.html": "/index.html",
+    "static/css/2.6e65bc66.chunk.css.map": "/static/css/2.6e65bc66.chunk.css.map",
+    "static/css/main.94f61a70.chunk.css.map": "/static/css/main.94f61a70.chunk.css.map",
+    "static/js/2.57fa5c7f.chunk.js.LICENSE.txt": "/static/js/2.57fa5c7f.chunk.js.LICENSE.txt",
+    "static/media/features.css": "/static/media/cine.068ac65a.jpg",
+    "static/media/default.81988db6.png": "/static/media/default.81988db6.png",
+    "static/media/login.css": "/static/media/fondoPink.f3becaae.jpg",
+    "static/media/load.b550b827.svg": "/static/media/load.b550b827.svg",
+    "static/media/styles.css": "/static/media/revicons.e8746a62.woff",
+    "static/media/register.css": "/static/media/waterRegister.602f2fe1.jpg",
+    "static/media/world.c85a30cf.jpg": "/static/media/world.c85a30cf.jpg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.90974d83.js",
+    "static/css/2.6e65bc66.chunk.css",
+    "static/js/2.57fa5c7f.chunk.js",
+    "static/css/main.94f61a70.chunk.css",
+    "static/js/main.fa0c80aa.chunk.js"
+  ]
+}
