@@ -65,8 +65,6 @@ const FeaturesMovie = () => {
     (like) => like.movie__name === name && like.user__uid === userActive?.uid
   );
 
-  console.log(boxLikes);
-
   const isRented = boxRented.some((rented) => rented.name === name);
 
   const isRentedUser = boxRented.some(
