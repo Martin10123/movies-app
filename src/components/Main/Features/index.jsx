@@ -34,7 +34,7 @@ const FeaturesMovie = () => {
   const { name, year, type, place, votes, synopsis, price, cantidad, image } =
     movie;
 
-  const boxLikes = JSON.parse(localStorage.getItem("movieID") || "[]");
+  const boxLikes = JSON.parse(localStorage.getItem("movieLikes") || "[]");
 
   useEffect(() => {
     localStorage.setItem("movieRented", JSON.stringify(boxRented));
@@ -64,6 +64,8 @@ const FeaturesMovie = () => {
   const isLikes = boxLikes.some(
     (like) => like.movie__name === name && like.user__uid === userActive?.uid
   );
+
+  console.log(boxLikes);
 
   const isRented = boxRented.some((rented) => rented.name === name);
 
@@ -106,7 +108,7 @@ const FeaturesMovie = () => {
         ]);
       }
       setShowLoader(false);
-    }, 5000);
+    }, 3500);
   };
 
   return (
