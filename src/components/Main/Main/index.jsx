@@ -17,27 +17,15 @@ import "./main.css";
 const MainScreen = () => {
   const { userActive } = useContext(UserActive);
   const [showMovie, setShowMovie] = useState(false);
-  const [boxLikes, setBoxLikes] = useState(
-    JSON.parse(localStorage.getItem("movieLikes") || "[]")
-  );
+  const [boxLikes, setBoxLikes] = useState();
 
   useEffect(() => {
     localStorage.setItem("movieLikes", JSON.stringify(boxLikes));
   }, [boxLikes]);
 
-  const likeToMovie = (movie__name, user__uid, movie__id) => {
-    const movieUser = { movie__name, user__uid, movie__id };
-    setBoxLikes((movie) => [...movie, movieUser]);
-  };
+  const likeToMovie = (movie__name, user__uid, movie__id) => {};
 
-  const removeLikeToMovie = (movie__name, user__uid) => {
-    boxLikes.filter(
-      (movie, i) =>
-        movie.movie__name === movie__name &&
-        movie.user__uid === user__uid &&
-        boxLikes.splice(i, 1)
-    );
-  };
+  const removeLikeToMovie = (movie__name, user__uid) => {};
 
   return (
     <>
